@@ -23,7 +23,7 @@
 			</div>
 			<div class="row form-group">
 				<div class="col-md-12">
-					<a href="adminindex.html"><input type="button" class="btn btn-primary btn-block" value="Admin User Temp"></a>
+					<a href="adminindex.php"><input type="button" class="btn btn-primary btn-block" value="Admin User Temp"></a>
 				</div>
 			</div>
 			<div class="row form-group">
