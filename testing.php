@@ -22,16 +22,14 @@ $connection = mysqli_connect( $dbhost, $username, $password, $dbname );
 	<?php
 
 	$query = "SELECT * FROM users";
-	$results = mysqli_query($connection, $query);
-	
-	while ($row = mysqli_fetch_row($results)) {
-		var_dump($row);
+	$results = mysqli_query( $connection, $query );
+
+	while ( $row = mysqli_fetch_row( $results ) ) {
+		var_dump( $row );
 		echo "<hr />";
 	}
 
 	?>
-
-
 
 </body>
 
