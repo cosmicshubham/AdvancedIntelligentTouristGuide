@@ -39,6 +39,7 @@
                                               <span id="payment-button-sending" style="display:none;">Sending…</span>
                                           </button>
 			
+
 			</div>
 		</div>
 
