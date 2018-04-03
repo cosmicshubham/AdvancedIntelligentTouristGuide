@@ -2,7 +2,7 @@
 <div class="tab-content">
 	<div class="tab-content-inner active" data-content="signup">
 		<h3>Login</h3>
-		<form method="post" action="userindexTest.php">
+		<form method="post" action="userindex.php">
 
 
 			<div class="row form-group">
