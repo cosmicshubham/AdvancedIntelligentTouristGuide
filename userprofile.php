@@ -86,7 +86,7 @@ include( "userDashboardHeader.php" );
 		<div class="page-header float-right">
 			<div class="page-title">
 				<ol class="breadcrumb text-right">
-					<li class="active">Dashboard</li>
+					<li class="active"><?php echo $loginUser; ?></li>
 				</ol>
 			</div>
 		</div>
