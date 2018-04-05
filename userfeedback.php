@@ -56,5 +56,6 @@
         </div>
         <!-- .content -->
     </div>
+</div>
     <?php include( "userDashboardFooter.php" ); ?>
     

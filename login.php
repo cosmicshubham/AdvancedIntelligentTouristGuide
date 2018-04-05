@@ -56,7 +56,7 @@ if ( isset( $_SESSION[ "user" ] ) ) {
 				<div class="col-md-12">
 					<a href="userindex.php"><input type="button" class="btn btn-primary btn-block" value="User Admin Temp"></a>
 				</div>
-			</div>
+			</div> 
 		</form>
 	</div>
 </div>
