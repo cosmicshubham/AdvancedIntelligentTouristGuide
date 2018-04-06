@@ -171,7 +171,7 @@ function updateUserDetails($userid, $uname, $gender, $aadharid, $dob, $phone, $a
 	$query = "UPDATE users SET uname = '" . $uname . "', gender = '" . $gender . "', aadharid = '" . $aadharid . "', dob = '" . $dob . "', phone = '" . $phone . "', address = '" . $address . "' WHERE userid = " . $userid;
 	$results = mysqli_query( $connection, $query );
 
-	if ( !$results || mysqli_affected_rows( $connection ) != 1 ) {
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
 		return true;
 	} else {
 		return false;
@@ -188,7 +188,7 @@ function updateUserEmailPassword($userid, $username, $password1, $password2) {
 	$query = "UPDATE users SET username = '" . $username . "', password = '" . $password1 . "' WHERE userid = " . $userid;
 	$results = mysqli_query( $connection, $query );
 
-	if ( !$results || mysqli_affected_rows( $connection ) != 1 ) {
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
 		return true;
 	} else {
 		return false;
@@ -201,7 +201,7 @@ function addNewUser($username, $password1, $password2, $type) {
 		return false;
 	}
 	
-	$query = "INSERT INTO users ( username, password, type ) VALUES ('" . $username . "', '" . $password1 . "', type = '" . $type . "')";
+	$query = "INSERT INTO users ( username, password, type ) VALUES ('" . $username . "', '" . $password1 . "', '" . $type . "')";
 	
 	$results = mysqli_query( $connection, $query );
 
@@ -230,6 +230,37 @@ function removeUser($userid) {
 
 
 
+function addUserPlaceRating($userid, $placeid, $placerating, $comment) {
+
+	$query = "INSERT INTO userplaceratings ( userid, placeid, placerating, comment ) VALUES (" . $userid . ", " . $placeid . ", " . $placerating . ", '" . $comment . "')";
+	
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+
+
+function updateUserPlaceRating($userid, $placeid, $placerating, $comment) {
+	if ($password1 != $password2) {
+		return false;
+	}
+	
+	$query = "UPDATE userplaceratings SET comment = " . $placerating . ", comment = '" . $comment . "' WHERE userid = " . $userid . " AND placeid = " . $placeid;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
 
 
 
