@@ -61,6 +61,8 @@
                             </li>
                             <li><i class="fa fa-location-arrow"></i><a href="usertags.php">User Tags</a>
                             </li>
+                            <li><i class="fa fa-location-arrow"></i><a href="updateUserPassword.php">Update User Password</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Feedback</a>

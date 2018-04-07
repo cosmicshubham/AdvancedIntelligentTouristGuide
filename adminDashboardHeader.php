@@ -67,6 +67,26 @@
 							</li>
 						</ul>
 					</li>
+                    <li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Operations</a>
+						<ul class="sub-menu children dropdown-menu">
+							<li><i class="fa fa-user"></i><a href="addUserAdmin.php">Add User</a>
+							</li>
+							<li><i class="fa fa-user"></i><a href="removeUserAdmin.php">Remove User</a>
+							</li>
+							<li><i class="fa fa-user"></i><a href="adminindex.php">Places Tags</a>
+							</li>
+                            <li><i class="fa fa-user"></i><a href="tagsToPlaces.php">Places Tags</a>
+							</li>
+                            <li><i class="fa fa-user"></i><a href="transportToPlaces.php">Transport</a>
+							</li>
+                            <li><i class="fa fa-user"></i><a href="tags.php">Add Tags</a>
+							</li>
+                            <li><i class="fa fa-user"></i><a href="updateRemovePlaces.php">Update or Remove Places</a>
+							</li>
+                            <li><i class="fa fa-user"></i><a href="adminAddPlaces.php">Add Places</a>
+							</li>
+						</ul>
+					</li>
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Feedbacks</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-th"></i><a href="adminindex.php">Product</a>
