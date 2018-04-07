@@ -85,7 +85,7 @@
 							</li>
                             <li><i class="fa fa-user"></i><a href="updateRemovePlaces.php">Update Remove Places</a>
 							</li>
-                            <li><i class="fa fa-user"></i><a href="adminAddPlace.php">Add Places</a>
+                            <li><i class="fa fa-user"></i><a href="adminAddPlaces.php">Add Places</a>
 							</li>
 						</ul>
 					</li>
