@@ -13,7 +13,7 @@
 	<meta name="description" content="Sufee Admin - HTML5 Admin Template">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" href="apple-icon.png">
-	<link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="images/logo.png" type="image/x-icon" />
 	<link rel="stylesheet" href="assets/css/normalize.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -132,8 +132,10 @@
                     <div class="user-area dropdown float-right"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar"> </a>
                         <div class="user-menu dropdown-menu"> 
 							<a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a> 
+<!--
 							<a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a> 
 							<a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+-->
 							<a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a> </div>
                     </div>
                 </div>
