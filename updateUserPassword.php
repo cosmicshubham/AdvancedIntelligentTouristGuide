@@ -25,7 +25,7 @@
                     <label for="vat" class=" form-control-label">Confirm Password</label>
                     <input type="password" id="vat" placeholder="Enter password" name="tbcnfpassword" class="form-control col-lg-12">
                     <br>
-                    <button id="payment-button" type="submit" class="btn btn-lg btn-info col-lg-3"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Update Password</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+                    <button id="payment-button" type="submit" name="btnupdate" class="btn btn-lg btn-info col-lg-3"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Update Password</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
                 </div>
             </div>
         </div>
