@@ -79,9 +79,11 @@
 -->
                             <li><i class="fa fa-location-arrow"></i><a href="tagsToPlaces.php">Places Tags</a>
 							</li>
+<!--
                             <li><i class="fa fa-cab"></i><a href="transport.php">Add Remove Transport</a>
 							</li>
-                            <li><i class="fa fa-cab"></i><a href="transportToPlaces.php">Transport</a>
+-->
+                            <li><i class="fa fa-cab"></i><a href="transportToPlaces.php">Add or Remove Transport</a>
 							</li>
                             <li><i class="fa fa-tags"></i><a href="tags.php">Add Tags</a>
 							</li>
