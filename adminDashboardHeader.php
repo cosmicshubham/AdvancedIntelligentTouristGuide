@@ -43,7 +43,7 @@
 					<li class="active"> <a href="adminindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
 					<h3 class="menu-title">Manage</h3>
 					<!-- /.menu-title -->
-					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Places</a>
+					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-location-arrow"></i>Places</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-location-arrow"></i><a href="adminindex.php">Delhi</a>
 							</li>
@@ -83,7 +83,7 @@
                             <li><i class="fa fa-cab"></i><a href="transport.php">Add Remove Transport</a>
 							</li>
 -->
-                            <li><i class="fa fa-cab"></i><a href="transportToPlaces.php">Add or Remove Transport</a>
+                            <li><i class="fa fa-cab"></i><a href="transportToPlaces.php">Add Remove Transport</a>
 							</li>
                             <li><i class="fa fa-tags"></i><a href="tags.php">Add Tags</a>
 							</li>
@@ -93,14 +93,14 @@
 							</li>
 						</ul>
 					</li>
-					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Feedbacks</a>
+					<!--<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Feedbacks</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="menu-icon fa fa-th"></i><a href="adminindex.php">Product</a>
 							</li>
 							<li><i class="menu-icon fa fa-th"></i><a href="adminindex.php">Places</a>
 							</li>
 						</ul>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

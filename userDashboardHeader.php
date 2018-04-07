@@ -55,17 +55,17 @@
                     </li>-->
                     <h3 class="menu-title">Manage</h3>
                     <!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Preferences</a>
+                    <li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-align-justify"></i>Preferences</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-location-arrow"></i><a href="userprofile.php">Basic Profile</a>
+                            <li><i class="fa fa-vcard"></i><a href="userprofile.php">Basic Profile</a>
                             </li>
-                            <li><i class="fa fa-location-arrow"></i><a href="usertags.php">User Tags</a>
+                            <li><i class="fa fa-tags"></i><a href="usertags.php">User Tags</a>
                             </li>
-                            <li><i class="fa fa-location-arrow"></i><a href="updateUserPassword.php">Update User Password</a>
+                            <li><i class="fa fa-vcard"></i><a href="updateUserPassword.php">Update User Password</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Feedback</a>
+                    <li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-align-justify"></i>Feedback</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a href="userfeedback.php">Product</a>
                             </li>
