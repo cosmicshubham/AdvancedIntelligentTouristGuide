@@ -77,11 +77,13 @@
 							</li>
                             <li><i class="fa fa-user"></i><a href="tagsToPlaces.php">Places Tags</a>
 							</li>
+                            <li><i class="fa fa-user"></i><a href="transport.php">Add Remove Transport</a>
+							</li>
                             <li><i class="fa fa-user"></i><a href="transportToPlaces.php">Transport</a>
 							</li>
                             <li><i class="fa fa-user"></i><a href="tags.php">Add Tags</a>
 							</li>
-                            <li><i class="fa fa-user"></i><a href="updateRemovePlaces.php">Update or Remove Places</a>
+                            <li><i class="fa fa-user"></i><a href="updateRemovePlaces.php">Update Remove Places</a>
 							</li>
                             <li><i class="fa fa-user"></i><a href="adminAddPlaces.php">Add Places</a>
 							</li>
