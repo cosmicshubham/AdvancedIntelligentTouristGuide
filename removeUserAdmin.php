@@ -11,7 +11,7 @@
 <div class="content mt-3">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header"><strong>Remove User</strong>
+            <div class="card-header"><strong>RemovUser</strong>
             </div>
             <div class="card-body card-block">
                 <div class="form-group">
