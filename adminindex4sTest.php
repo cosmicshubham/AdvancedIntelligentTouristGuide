@@ -13,6 +13,30 @@ function callGetApi($url) {
     // echo "dadada";
     return $output;
 }
+
+function getPhotos($venueIDs) {
+    global $client_key, $client_secret;
+    $photos = array();
+    $i = -1;
+    foreach ($venueIDs as $venueId) {
+
+        $url = "https://api.foursquare.com/v2/venues/" . $venueId['id'] . "/photos?&limit=1&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
+
+        $output = callGetApi($url);
+
+        if ($output['response']['photos']['count'] >= 1) {
+            $photos[++$i] = $output['response']['photos']['items'][0]['prefix'] . '500x500' . $output['response']['photos']['items'][0]['suffix'];
+
+            //echo "url = ".$venueList[$i]['photo']."\n";
+        } else {
+            //echo "No Photo";
+            $photos[++$i] = '';
+        }
+    }
+
+    return $photos;
+}
+
 function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
     global $client_key, $client_secret;
     $url = "https://api.foursquare.com/v2/venues/explore?ll=" . $lat . "," . $lng . "&radius=" . $radius . "&limit=10&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
@@ -45,7 +69,7 @@ function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
             $venue['status'] = $i['venue']['hours']['status'];
         if (isset($i['venue']['url']))
             $venue['url'] = $i['venue']['url'];
-        $venue['photo'] = '';
+        //$venue['photos'] = '';
         //print_r($venue);
         array_push($venueList, $venue);
     }
@@ -93,17 +117,28 @@ function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
 	<!--/.col-->
 	
 	<?php
+        
 		$resultFrom4s = getVenuesListUsingLatLng(25.4358, 81.8463, 20000);
 		foreach($resultFrom4s as $i) {
-			echo ("			<div class='col-xl-3 col-lg-6'>
+            //$resultFromPhotos = getPhotos($i['id']);
+            //echo($resultFromPhotos);
+			echo ("			<div class='col-xl-6 col-lg-6'>
 		<div class='card'>
 			<div class='card-body'>
 				<div class='stat-widget-one'>
 					<div class='stat-icon dib'><i class='ti-user text-primary border-primary'></i>
+                    
 					</div>
 					<div class='stat-content dib'>");
-			
+			echo ("			<div class='stat-text'>" . $i['id'] . "</div>");
 			echo ("			<div class='stat-text'>" . $i['name'] . "</div>");
+            //echo ("			<div class='stat-text'>" . $i['photos'] . "</div>");
+            if(isset($i['address']))
+                $add = $i["address"];
+            else
+                $add = "";
+            echo ("			<div class='stat-text'>" . $add ."</div>");
+            echo ("			<div class='stat-text'>" . $i['description'] . "</div>");
 			echo ("
 						
 					</div>
