@@ -84,10 +84,9 @@ function removeTransportFromPlace( $placceid, $transportid ) {
 
 }
 
-function addTagToPlace( $placceid, $tagid, $weight ) {
+function addTagToPlace( $placeid, $tagid, $weight ) {
 
-	$query = "INSERT INTO placestags ( placeid, tagid, weight ) VALUES (" . $placceid . ", " . $tagid . ", " . $weight . ")";
-	echo (var_dump($query));
+	$query = "INSERT INTO placestags ( placeid, tagid, weight ) VALUES (" . $placeid . ", " . $tagid . ", " . $weight . ")";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
