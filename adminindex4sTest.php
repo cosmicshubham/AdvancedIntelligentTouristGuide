@@ -37,6 +37,26 @@ function getPhotos($venueIDs) {
     return $photos;
 }
 
+function getPhotoSingle($venueID) {
+    global $client_key, $client_secret;
+    $photos = array();
+        $url = "https://api.foursquare.com/v2/venues/" . $venueID . "/photos?&limit=1&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
+
+        $output = callGetApi($url);
+
+        if ($output['response']['photos']['count'] >= 1) {
+            $photos[0] = $output['response']['photos']['items'][0]['prefix'] . '500x500' . $output['response']['photos']['items'][0]['suffix'];
+
+            //echo "url = ".$venueList[$i]['photo']."\n";
+        } else {
+            //echo "No Photo";
+            $photos[0] = '';
+        }
+    
+
+    return $photos[0];
+}
+
 function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
     global $client_key, $client_secret;
     $url = "https://api.foursquare.com/v2/venues/explore?ll=" . $lat . "," . $lng . "&radius=" . $radius . "&limit=10&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
@@ -91,109 +111,110 @@ function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
     </div>
 </div>
 <div class="content mt-3">
-	<div class="col-sm-12">
-		<div class="alert  alert-success alert-dismissible fade show" role="alert"> <span class="badge badge-pill badge-success">Hello</span> Welcome to the AITG Dashboard.
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-		</div>
-	</div>
+    <div class="col-sm-12">
+        <div class="alert  alert-success alert-dismissible fade show" role="alert"> <span class="badge badge-pill badge-success">Hello</span> Welcome to the AITG Dashboard.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        </div>
+    </div>
 
-	<!--/.col-->
+    <!--/.col-->
 
-	<div class="col-lg-3 col-md-6">
-		<div class="social-box facebook"> <i class="fa fa-facebook"></i> </div>
-	</div>
-	<!--/.col-->
+    <div class="col-lg-3 col-md-6">
+        <div class="social-box facebook"> <i class="fa fa-facebook"></i> </div>
+    </div>
+    <!--/.col-->
 
-	<div class="col-lg-3 col-md-6">
-		<div class="social-box twitter"> <i class="fa fa-twitter"></i> </div>
-		<!--/social-box-->
-	</div>
-	<!--/.col-->
+    <div class="col-lg-3 col-md-6">
+        <div class="social-box twitter"> <i class="fa fa-twitter"></i> </div>
+        <!--/social-box-->
+    </div>
+    <!--/.col-->
 
-	<div class="col-lg-3 col-md-6">
-		<div class="social-box linkedin"> <i class="fa fa-linkedin"></i> </div>
-		<!--/social-box-->
-	</div>
-	<!--/.col-->
-	
-	<?php
+    <div class="col-lg-3 col-md-6">
+        <div class="social-box linkedin"> <i class="fa fa-linkedin"></i> </div>
+        <!--/social-box-->
+    </div>
+    <!--/.col-->
+    
+    <?php
         
-		$resultFrom4s = getVenuesListUsingLatLng(25.4358, 81.8463, 20000);
-		foreach($resultFrom4s as $i) {
+        $resultFrom4s = getVenuesListUsingLatLng(25.4358, 81.8463, 20000);
+        foreach($resultFrom4s as $i) {
             //$resultFromPhotos = getPhotos($i['id']);
             //echo($resultFromPhotos);
-			echo ("			<div class='col-xl-6 col-lg-6'>
-		<div class='card'>
-			<div class='card-body'>
-				<div class='stat-widget-one'>
-					<div class='stat-icon dib'><i class='ti-user text-primary border-primary'></i>
+            echo ("         <div class='col-xl-6 col-lg-6'>
+        <div class='card'>
+            <div class='card-body'>
+                <div class='stat-widget-one'>
+                    <div class='stat-icon dib'><i class='ti-user text-primary border-primary'></i>
                     
-					</div>
-					<div class='stat-content dib'>");
-			echo ("			<div class='stat-text'>" . $i['id'] . "</div>");
-			echo ("			<div class='stat-text'>" . $i['name'] . "</div>");
-            //echo ("			<div class='stat-text'>" . $i['photos'] . "</div>");
+                    </div>
+                    <div class='stat-content dib'>");
+            echo ("         <div class='stat-text'>" . $i['id'] . "</div>");
+            echo ("         <div class='stat-text'>" . $i['name'] . "</div>");
+            //echo ("           <div class='stat-text'>" . $i['photos'] . "</div>");
             if(isset($i['address']))
                 $add = $i["address"];
             else
                 $add = "";
-            echo ("			<div class='stat-text'>" . $add ."</div>");
-            echo ("			<div class='stat-text'>" . $i['description'] . "</div>");
-			echo ("
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>");
-			
-			
-			
-			
-			
-		}
-	
-	?>
-	
-	
-	<div class="col-xl-3 col-lg-6">
-		<div class="card">
-			<div class="card-body">
-				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
-					</div>
-					<div class="stat-content dib">
-						<div class="stat-text">Places</div>
-						<div class="stat-digit">5</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-xl-6">
-		<div class="card">
-			<div class="card-header">
-				<h4>India</h4>
-				<div id="googleMap" style="width:100%;height:400px;"></div>
-				<script>
-					function myMap() {
-						var mapProp = {
-							center: new google.maps.LatLng( 25.4920, 81.8639 ),
-							zoom: 15,
-						};
-						var map = new google.maps.Map( document.getElementById( "googleMap" ), mapProp );
-					}
-				</script>
-				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQle47vALGQKq5P_8fJYXHQmZEWSo4&callback=myMap"></script>
-			</div>
-			<!--
+            echo ("         <div class='stat-text'>" . $add ."</div>");
+            echo ("         <div class='stat-text'>" . $i['description'] . "</div>");
+            echo ("         <div><img alt='image' src='" . getPhotoSingle($i['id']) . "'/></div>");
+            echo ("
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>");
+            
+            
+            
+            
+            
+        }
+    
+    ?>
+    
+    
+    <div class="col-xl-3 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
+                    </div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">Places</div>
+                        <div class="stat-digit">5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>India</h4>
+                <div id="googleMap" style="width:100%;height:400px;"></div>
+                <script>
+                    function myMap() {
+                        var mapProp = {
+                            center: new google.maps.LatLng( 25.4920, 81.8639 ),
+                            zoom: 15,
+                        };
+                        var map = new google.maps.Map( document.getElementById( "googleMap" ), mapProp );
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQle47vALGQKq5P_8fJYXHQmZEWSo4&callback=myMap"></script>
+            </div>
+            <!--
                     <div class="Vector-map-js">
                         <div id="vmap" class="vmap" style="height: 265px;"></div>
                     </div>
 -->
-		</div>
-		<!-- /# card -->
-	</div>
+        </div>
+        <!-- /# card -->
+    </div>
 </div>
 <!-- .content --> 
 </div>
