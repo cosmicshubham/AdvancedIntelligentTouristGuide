@@ -70,7 +70,7 @@
 						</figure>
 						<div class="fh5co-text">
 							<h2>Cherrapunjee</h2>
-							<p>Cherrapunjee, also known as Sohra, is a high-altitude town in the northeast Indian state of Meghalaya. It's known for its living root bridges, made from rubber trees. To the northeast, Mawkdok Dympep Valley View Point overlooks verdant gorges.</p>
+							<p>Cherrapunjee, also known as Sohra, is a high-altitude town in the northeast Indian state of Meghalaya. It's known for its living root bridges, made from rubber trees. To the northeast, Mawkdok Dympep Valley View Point overlooks verdant gorges.</p><br><br>
 							<p><span class="btn btn-primary">Schedule a Trip</span></p>
 						</div>
 					</a>
