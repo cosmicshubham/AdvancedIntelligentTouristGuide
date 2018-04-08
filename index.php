@@ -6,7 +6,7 @@
 <div class="tab-content">
 	<div class="tab-content-inner active" data-content="signup">
 		<h3>Start here...</h3>
-		<form action="#">
+		<form>
 
 
 			<div class="row form-group">

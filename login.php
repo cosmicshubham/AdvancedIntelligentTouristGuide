@@ -1,9 +1,6 @@
 <?php
-session_start();
-if ( isset( $_SESSION[ "user" ] ) ) {
-	//TODO: add admin to
-	//header( "location: userindex.php" );
-}
+
+include( "loginHandler.php" );
 ?>
 
 
@@ -25,6 +22,9 @@ if ( isset( $_SESSION[ "user" ] ) ) {
 						}
 						else if ($status == "logout") {
 							echo "Logout successful";
+						}
+						else if ($status == "expire") {
+							echo "Session Expired";
 						}
 						
 					}

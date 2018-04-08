@@ -1,37 +1,47 @@
 <?php
 
-$username = "aitgadmin";
-$password = "aitgadmin";
-$dbname = "aitgdb";
-$dbhost = "localhost";
-$connection = mysqli_connect( $dbhost, $username, $password, $dbname );
+include( "queryFunctions.php" );
 
-if ( mysqli_connect_errno() ) {
-	die( "Database connection failed: " . mysqli_connect_error() . mysqli_connect_errno() );
-}
-
-if ( !isset( $_POST[ "submit" ] ) ) {
-	header( "Location: login.php" );
-}
 session_start();
-$loginUser = $_POST[ "username" ];
-$loginPass = $_POST[ "password" ];
-$_SESSION[ "user" ] = $loginUser;
+if ( isset( $_SESSION[ "userid" ] ) ) {
+	$type = redirect( getUserType( $_SESSION[ "userid" ] ) );
+	redirect( $type );
+}
 
-if ( $loginUser == "admin" && $loginPass == "admin" ) {
-	header( "Location: adminindex.php" );
-} else {
+
+if ( isset( $_POST[ "submit" ] ) ) {
+
+	$loginUser = $_POST[ "username" ];
+	$loginPass = $_POST[ "password" ];
+
+
 	$query = "SELECT * FROM users WHERE (username = '" . $loginUser . "' AND password = '" . $loginPass . "')";
 	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
 
-	if ( !mysqli_fetch_assoc( $results ) ) {
+	if ( !$row ) {
 		header( "Location: login.php?status=wrong" );
+	} else {
+		session_start();
+		$_SESSION[ "userid" ] = $row[ "userid" ];
+		$type = $row[ "type" ];
+		redirect( $type );
+
+	}
+
+
+}
+
+
+
+
+function redirect( $type ) {
+	if ( $type == "admin" ) {
+		header( "Location: adminindex.php" );
 	} else {
 		header( "Location: userindex.php" );
 	}
-
 }
-
 
 
 ?>
