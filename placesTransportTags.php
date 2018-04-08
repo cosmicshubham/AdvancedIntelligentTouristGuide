@@ -107,7 +107,7 @@ include( "adminDashboardHeader.php" );
 				<div class="form-group">
 					<label for="vat" class=" form-control-label">Remove this place</label>
 					<br>
-					<button id="payment-button" type="submit" name="btnRemovePlaces" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Remove</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+					<button id="payment-button" type="submit" name="btnRemovePlaces" class="btn btn-lg btn-info col-lg-2">Remove</button>
 
 				</div>
 				</form>
@@ -148,8 +148,8 @@ include( "adminDashboardHeader.php" );
 						?>
 					</select>
 					<br>
-					<button id="payment-button" type="submit" name="btnaddTag" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Add</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
-					<button id="payment-button" type="submit" name="btnremoveTag" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Remove</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+					<button id="payment-button" type="submit" name="btnaddTag" class="btn btn-lg btn-info col-lg-2">Add</button>
+					<button id="payment-button" type="submit" name="btnremoveTag" class="btn btn-lg btn-info col-lg-2">Remove</button>
 
 
 				</div>
@@ -186,8 +186,8 @@ include( "adminDashboardHeader.php" );
 							</select>
 						</div>
 					</div>
-					<button id="payment-button" type="submit" name="btnaddTransport" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Add</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
-					<button id="payment-button" type="submit" name="btnremoveTransport" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Remove</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+					<button id="payment-button" type="submit" name="btnaddTransport" class="btn btn-lg btn-info col-lg-2">Add</button>
+					<button id="payment-button" type="submit" name="btnremoveTransport" class="btn btn-lg btn-info col-lg-2">Remove</button>
 				</div>
 				</form>
 			</div>

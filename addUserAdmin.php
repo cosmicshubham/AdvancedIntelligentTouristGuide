@@ -64,7 +64,7 @@ include( "adminDashboardHeader.php" );
 						<input type="password" id="vat" placeholder="Enter password" name="tbpassword2" class="form-control col-lg-12">
 						<br>
 
-						<button id="payment-button" type="submit" name="btnadd" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Add</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+						<button id="payment-button" type="submit" name="btnadd" class="btn btn-lg btn-info col-lg-2">Add</button>
 					</div>
 				</form>
 			</div>

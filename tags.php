@@ -45,7 +45,7 @@ include( "adminDashboardHeader.php" );
 						<label for="vat" class=" form-control-label">Add Tags</label>
 						<input type="text" id="vat" placeholder="Enter tag" name="tbtag" class="form-control col-lg-12">
 						<br>
-						<button id="payment-button" type="submit" name="btnadd" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Add</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+						<button id="payment-button" type="submit" name="btnadd" class="btn btn-lg btn-info col-lg-2">Add</button>
 
 						<br/>
 						<br/>
@@ -64,7 +64,7 @@ include( "adminDashboardHeader.php" );
 								</select>
 							</div>
 						</div>
-						<button id="payment-button" type="submit" name="btnremove" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Remove</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+						<button id="payment-button" type="submit" name="btnremove" class="btn btn-lg btn-info col-lg-2">Remove</button>
 					</div>
 				</form>
 			</div>

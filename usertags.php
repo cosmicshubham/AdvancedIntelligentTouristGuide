@@ -88,8 +88,8 @@ if ( isset( $_POST[ "add" ] ) ) {
 							}
 							?>
 						</select> <br>
-						<button id="payment-button" type="submit" name="add" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Add</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
-						<button id="payment-button" type="submit" name="remove" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg"></i>&nbsp; <span id="payment-button-amount">Remove</span> <span id="payment-button-sending" style="display:none;">Sending…</span> </button>
+						<button id="payment-button" type="submit" name="add" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg">Add</button>
+						<button id="payment-button" type="submit" name="remove" class="btn btn-lg btn-info col-lg-2">Remove</button>
 					</div>
 				</form>
 			</div>
