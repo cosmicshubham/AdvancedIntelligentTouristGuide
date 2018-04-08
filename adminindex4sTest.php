@@ -207,11 +207,6 @@ function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
                 </script>
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQle47vALGQKq5P_8fJYXHQmZEWSo4&callback=myMap"></script>
             </div>
-            <!--
-                    <div class="Vector-map-js">
-                        <div id="vmap" class="vmap" style="height: 265px;"></div>
-                    </div>
--->
         </div>
         <!-- /# card -->
     </div>
