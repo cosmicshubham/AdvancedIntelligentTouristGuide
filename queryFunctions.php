@@ -87,7 +87,7 @@ function removeTransportFromPlace( $placceid, $transportid ) {
 function addTagToPlace( $placceid, $tagid, $weight ) {
 
 	$query = "INSERT INTO placestags ( placeid, tagid, weight ) VALUES (" . $placceid . ", " . $tagid . ", " . $weight . ")";
-
+	echo (var_dump($query));
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
@@ -291,6 +291,29 @@ function getUserType( $userid ) {
 
 function checkUserExist( $username ) {
 	$query = "SELECT * FROM users WHERE username = '" . $username . "'";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( $row  ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function checkPlaceTagExist( $placeid, $tagid ) {
+	$query = "SELECT * FROM placestags WHERE placeid = " . $placeid . " AND tagid = " . $tagid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( $row  ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+function checkPlaceTransportExist( $placeid, $transportid ) {
+	$query = "SELECT * FROM modeoftransport WHERE placeid = " . $placeid . " AND transportid = " . $transportid;
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
