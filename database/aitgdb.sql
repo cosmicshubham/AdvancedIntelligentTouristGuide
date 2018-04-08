@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2018 at 01:05 PM
+-- Generation Time: Apr 08, 2018 at 10:27 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -34,6 +34,15 @@ CREATE TABLE `modeoftransport` (
   `transportid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `modeoftransport`
+--
+
+INSERT INTO `modeoftransport` (`id`, `placeid`, `transportid`) VALUES
+(1, 1, 1),
+(7, 1, 2),
+(9, 1, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -43,9 +52,20 @@ CREATE TABLE `modeoftransport` (
 CREATE TABLE `places` (
   `placeid` int(11) NOT NULL,
   `placename` varchar(255) NOT NULL,
-  `lattitude` decimal(10,0) NOT NULL,
-  `longitude` decimal(10,0) NOT NULL
+  `lattitude` decimal(10,4) NOT NULL,
+  `longitude` decimal(10,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `places`
+--
+
+INSERT INTO `places` (`placeid`, `placename`, `lattitude`, `longitude`) VALUES
+(1, 'Goa', '15.2993', '74.1240'),
+(2, 'Mumbai', '19.0760', '72.8777'),
+(3, 'Chennai', '13.0827', '80.2707'),
+(4, 'Delhi', '28.7041', '77.1025'),
+(7, 'Allahabad', '25.4358', '81.8463');
 
 -- --------------------------------------------------------
 
@@ -59,6 +79,15 @@ CREATE TABLE `placestags` (
   `tagid` int(11) NOT NULL,
   `weight` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `placestags`
+--
+
+INSERT INTO `placestags` (`id`, `placeid`, `tagid`, `weight`) VALUES
+(2, 1, 3, 9),
+(4, 3, 4, 3),
+(8, 1, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -91,6 +120,18 @@ CREATE TABLE `transports` (
   `transportid` int(11) NOT NULL,
   `transportname` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transports`
+--
+
+INSERT INTO `transports` (`transportid`, `transportname`) VALUES
+(1, 'Car'),
+(2, 'Auto'),
+(3, 'Train'),
+(4, 'Bus'),
+(5, 'Self'),
+(6, 'Boat');
 
 -- --------------------------------------------------------
 
@@ -135,8 +176,7 @@ INSERT INTO `users` (`userid`, `username`, `password`, `uname`, `gender`, `aadha
 (1, 'shubham', 'kumar', 'Shubham Kumar', 'male', '654654654654', '1996-10-25', '54654654', '22222', 0, '', 'standard'),
 (2, 'aakash', 'chandhoke', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'admin'),
 (4, 'hello', 'hello', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'standard'),
-(5, 'mmmm', 'mmmm', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'admin'),
-(6, 'mmmmmm', 'mmm', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'admin');
+(5, 'mmmm', 'mmmm', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'admin');
 
 -- --------------------------------------------------------
 
@@ -227,17 +267,17 @@ ALTER TABLE `usertags`
 -- AUTO_INCREMENT for table `modeoftransport`
 --
 ALTER TABLE `modeoftransport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
-  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `placestags`
 --
 ALTER TABLE `placestags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tags`
 --
@@ -247,7 +287,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `transports`
 --
 ALTER TABLE `transports`
-  MODIFY `transportid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transportid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `userplacerating`
 --
@@ -257,7 +297,7 @@ ALTER TABLE `userplacerating`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `userid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `usertags`
 --
