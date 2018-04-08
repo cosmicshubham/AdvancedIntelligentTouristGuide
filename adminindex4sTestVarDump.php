@@ -97,7 +97,7 @@ function getVenuesListUsingLatLng( $lat, $lng, $radius = 20000 ) {
 	<?php
 	$resultFrom4s = getVenuesListUsingLatLng( 25.4358, 81.8463, 20000 );
 	foreach ( $resultFrom4s as $i ) {
-		echo( "			<div class='col-xl-3 col-lg-6'>
+		echo( "			<div class='col-xl-6 col-lg-6'>
 		<div class='card'>
 			<div class='card-body'>
 				<div class='stat-widget-one'>
