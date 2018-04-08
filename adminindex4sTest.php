@@ -37,6 +37,26 @@ function getPhotos($venueIDs) {
     return $photos;
 }
 
+function getPhotoSingle($venueID) {
+    global $client_key, $client_secret;
+    $photos = array();
+        $url = "https://api.foursquare.com/v2/venues/" . $venueID . "/photos?&limit=1&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
+
+        $output = callGetApi($url);
+
+        if ($output['response']['photos']['count'] >= 1) {
+            $photos[0] = $output['response']['photos']['items'][0]['prefix'] . '500x500' . $output['response']['photos']['items'][0]['suffix'];
+
+            //echo "url = ".$venueList[$i]['photo']."\n";
+        } else {
+            //echo "No Photo";
+            $photos[0] = '';
+        }
+    
+
+    return $photos[0];
+}
+
 function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
     global $client_key, $client_secret;
     $url = "https://api.foursquare.com/v2/venues/explore?ll=" . $lat . "," . $lng . "&radius=" . $radius . "&limit=10&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
@@ -139,6 +159,7 @@ function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
                 $add = "";
             echo ("			<div class='stat-text'>" . $add ."</div>");
             echo ("			<div class='stat-text'>" . $i['description'] . "</div>");
+			echo ("			<div><img alt='image' src='" . getPhotoSingle($i['id']) . "'/></div>");
 			echo ("
 						
 					</div>
