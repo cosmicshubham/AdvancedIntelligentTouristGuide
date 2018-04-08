@@ -129,14 +129,24 @@ if ( mysqli_connect_errno() ) {
         <header id="header" class="header">
             <div class="header-menu">
                 <div class="col-sm-10"> <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="col-sm-6">
-                        <select name="cbplaces" id="activities" class="form-control">
-                        <option value="">Italy</option>
-                    </select>
-                    </div>
-                    <div class="col-sm-4">
-                    <button id="payment-button" type="submit" name="btnadd" class="btn btn-md btn-info">Add</button>
-                    </div>
+                    <form action="admin4Square.php" method="post">
+						<div class="col-sm-6">
+							<select name="cbplaces" id="activities" class="form-control">
+							<?php
+
+							global $connection;
+							$query = "SELECT * FROM places";
+							$results = mysqli_query( $connection, $query );
+							while ( $row = mysqli_fetch_assoc( $results ) ) {
+								echo( "<option value = '" . $row[ "placeid" ] . "' >" . $row[ "placename" ] . " </option>" );
+							}
+							?>
+							</select>
+						</div>
+						<div class="col-sm-4">
+							<button id="payment-button" type="submit" name="btnSearch" class="btn btn-md btn-info">Search</button>
+						</div>
+					</form>
                 </div>
                 
                 <div class="col-sm-2">
