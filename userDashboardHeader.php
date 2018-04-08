@@ -52,7 +52,7 @@ if ( mysqli_connect_errno() ) {
 				<a class="navbar-brand" href="./">User Name</a> <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> </div>
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"> <a href="userindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
+					<li class="active"> <a href="adminindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
 					<!--<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Travel</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-user"></i><a href="userapi.php">Location</a>
@@ -113,10 +113,6 @@ if ( mysqli_connect_errno() ) {
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
 								echo( "<option value = '" . $row[ "placeid" ] . "' >" . $row[ "placename" ] . " </option>" );
 							}
-
-
-
-
 							?>
 							</select>
 						</div>

@@ -56,7 +56,7 @@ function getPhotoSingle( $venueID ) {
 	return $photos[ 0 ];
 }
 
-function getVenuesListUsingLatLng( $lat, $lng, $radius = 20000 ) {
+function getVenuesListUsingLatLng( $lat, $lng, $radius) {
 	global $client_key, $client_secret;
 	$url = "https://api.foursquare.com/v2/venues/explore?ll=" . $lat . "," . $lng . "&radius=" . $radius . "&limit=10&client_id=" . $client_key . "&client_secret=" . $client_secret . "&v=20180317";
 	$output = callGetApi( $url );

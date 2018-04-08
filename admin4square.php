@@ -1,9 +1,9 @@
 <?php
 include( "foursquareHelper.php" );
-include( "userDashboardHeader.php" );
+include( "adminDashboardHeader.php" );
 
 if ( !isset( $_POST[ "btnSearch" ] ) ) {
-	header( "Location: userindex.php" );
+	header( "Location: adminindex.php" );
 }
 
 
@@ -12,7 +12,7 @@ global $connection;
 $query = "SELECT * FROM places WHERE placeid = " . $_POST["cbplaces"];
 $results = mysqli_query( $connection, $query );
 $row = mysqli_fetch_assoc( $results );
-echo (var_dump($row));
+
 $lat = $row["lattitude"];
 $long = $row[ "longitude" ];
 $name = $row[ "placename" ];
@@ -85,4 +85,4 @@ foreach ( $resultFrom4s as $i ) {
 
 ?>
 </div>
-<?php include( "userDashboardFooter.php" ); ?>
+<?php include( "adminDashboardFooter.php" ); ?>
