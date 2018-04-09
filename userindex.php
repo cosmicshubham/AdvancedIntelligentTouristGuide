@@ -8,7 +8,7 @@ $userid = $_SESSION[ "userid" ];
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
-                 <?php echo "<h1>Welcome Standard User Id ".$userid ."</h1>"?>
+                 <?php echo "<h1>Welcome</h1>"?>
 			</div>
 		</div>
 	</div>

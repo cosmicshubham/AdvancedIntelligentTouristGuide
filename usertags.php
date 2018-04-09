@@ -77,7 +77,7 @@ if ( isset( $_POST[ "remove" ] ) ) {
 
 							<?php
 							global $connection;
-							$query = "SELECT * FROM tags";
+							$query = "SELECT * FROM tags ORDER BY tagname";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
 								echo( "<option value = '" . $row[ "tagid" ] . "' >" . $row[ "tagname" ] . "</option>" );
