@@ -238,9 +238,15 @@ function updateUserEmailPassword( $userid, $username, $password1, $password2 ) {
 }
 
 function addNewUser( $username, $password1, $password2, $type ) {
-	if ( $password1 != $password2 ) {
+	
+	if ($username == '' || $password1 == '' || $password2 == '') {
 		return -1;
 	}
+	
+	if (!filter_var($username, FILTER_VALIDATE_EMAIL) ||$password1 != $password2 ) {
+		return -1;
+	}
+	
 
 	$query = "INSERT INTO users ( username, password, type ) VALUES ('" . $username . "', '" . $password1 . "', '" . $type . "')";
 

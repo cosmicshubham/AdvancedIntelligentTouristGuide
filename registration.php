@@ -43,7 +43,7 @@ session_destroy();
 
 			<div class="row form-group">
 				<div class="col-md-12">
-					<input type="submit" name="submit" onClick="return validateForm()" class="btn btn-primary btn-block" value="Submit">
+					<input type="submit" name="submit" class="btn btn-primary btn-block" value="Submit">
 				</div>
 			</div>
 			
@@ -54,34 +54,7 @@ session_destroy();
 			</div>
 		</form>
 	</div>
-	<script>
-		function validateForm() 
-        {
-            var name = document.getElementByName("formname").value;
-            var pass = document.getElementsByName("formpassword").value;
-            var cnfpass = document.getElementsByName("formcnfpassword").value;
-			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-			if ( name == null || name==="",pass == null || pass==="",cnfpass== null || cnfpass==="" ) {
-				alert( "Please Fill All Required Field" );
-                //document.getElementById("out").innerHTML="Please Fill All Required Field"   ;
-				return false;
-			} 
-            else {
-				if ( reg.test( name ) == false && reg ) {
-					alert( "Invalid email" );
-                   //document.getElementById("out").innerHTML="Invalid email";
-					return false;
-				}
-				if ( pass != cnfpass ){
-					alert( "Password and Confirm Password Different" );
-                    //document.getElementById("out").innerHTML="Passwords are Different";
-                    return false;
-			 }
-            }
-			return true;
-		}
-} 
-	</script>
+
 
 
 </div>
