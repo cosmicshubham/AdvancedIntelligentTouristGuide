@@ -1,4 +1,5 @@
 <?php
+include( "sessionRedirector.php" );
 include( "queryFunctions.php" );
 if ( isset( $_POST[ "btnremove" ] ) ) {
 	if ( removeTag( $_POST[ "cbtags" ] ) ) {

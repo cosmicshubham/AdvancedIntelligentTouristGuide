@@ -1,5 +1,5 @@
 <?php
-
+include( "sessionRedirector.php" );
 include( "userDashboardHeader.php" );
 $userid = $_SESSION[ "userid" ];
 

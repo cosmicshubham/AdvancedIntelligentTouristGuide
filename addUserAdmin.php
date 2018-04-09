@@ -1,5 +1,6 @@
 <?php
 include( "queryFunctions.php" );
+include( "sessionRedirector.php" );
 if ( isset( $_POST[ "btnadd" ] ) ) {
 	if ( checkUserExist( $_POST[ "tbusername" ] ) ) {
 		header( "Location: addUserAdmin.php?status=UserNameAlreadyExist" );

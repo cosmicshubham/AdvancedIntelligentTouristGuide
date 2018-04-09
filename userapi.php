@@ -1,4 +1,6 @@
-<?php include( "userDashboardHeader.php" ); ?>
+<?php
+include( "sessionRedirector.php" );
+include( "userDashboardHeader.php" ); ?>
 
 <div class="breadcrumbs">
 	<div class="col-sm-4">

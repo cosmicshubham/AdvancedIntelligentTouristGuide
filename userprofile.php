@@ -1,8 +1,14 @@
 <?php
+include( "sessionRedirector.php" );
 include( "queryFunctions.php" );
+
 $userid = $_SESSION[ "userid" ];
 $type = getUserType( $userid );
-
+if ( $type == "admin" ) {
+	include( "adminDashboardHeader.php" );
+} else {
+	include( "userDashboardHeader.php" );
+}
 if ( isset( $_POST[ "submit" ] ) ) {
 
 	if ( updateUserDetails( $userid, $_POST[ "formname" ], $_POST[ "formgender" ], $_POST[ "formaadhar" ], $_POST[ "formdob" ], $_POST[ "formphone" ], $_POST[ "formaddress" ] ) ) {
@@ -28,11 +34,7 @@ if ( $row = mysqli_fetch_assoc( $results ) ) {
 }
 
 
-if ( $type == "admin" ) {
-	include( "adminDashboardHeader.php" );
-} else {
-	include( "userDashboardHeader.php" );
-}
+
 
 ?>
 

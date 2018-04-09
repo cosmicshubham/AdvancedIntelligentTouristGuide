@@ -1,5 +1,6 @@
 <?php
 include( "queryFunctions.php" );
+include( "sessionRedirector.php" );
 if ( isset( $_POST[ "btnadd" ] ) ) {
 	if ( addPlace( $_POST[ "tbplace" ], $_POST[ "tblatitudes" ], $_POST[ "tblongitudes" ] ) ) {
 		header( "Location: adminAddPlaces.php?status=PlaceAdded" );
