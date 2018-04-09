@@ -58,9 +58,12 @@ foreach ( $resultFrom4s as $i ) {
 	echo( "         <div><img alt='image' src='" . getPhotoSingle( $i[ 'id' ] ) . "'/></div><br/>" );
 	echo( "</div>
                     <div class='stat-content dib'>" );
-	if ( isset( $i[ 'address' ] ) ) {
+	if ( isset( $i[ 'city' ] ) ) {
 		echo( "         <div class='stat-text '><strong>Address : </strong></div>" );
-		$add = $i[ "address" ];
+		$add = $i[ "city" ].' '.$i['country'];
+        //$addr=explode(" ",$add);
+        //$address=implode(' ',array_slice($addr, 0)).', India';   
+        //$add
 	} else
 		$add = "<br>";
 
