@@ -1,4 +1,6 @@
-<?php include( "adminDashboardHeader.php" ); ?>
+<?php
+include( "sessionRedirector.php" );
+include( "adminDashboardHeader.php" ); ?>
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">

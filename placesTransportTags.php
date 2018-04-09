@@ -2,6 +2,7 @@
 //if ( !isset( $_GET[ "placeid" ] ) ){
 //	header( "Location: adminindex.php" );
 //}
+include( "sessionRedirector.php" );
 if ( !isset( $_GET[ "placeid" ] ) ) {
 	header( "Location: adminindex.php" );
 }
@@ -105,8 +106,10 @@ include( "adminDashboardHeader.php" );
 				echo( "<form method='post' action='placesTransportTags.php?placeid=" . $placeidCurrent . "'>" );
 				?>
 				<div class="form-group">
+<!--
 					<label for="vat" class=" form-control-label">Remove this place</label>
 					<br>
+-->
 					<button id="payment-button" type="submit" name="btnRemovePlaces" class="btn btn-lg btn-info col-lg-2">Remove</button>
 
 				</div>

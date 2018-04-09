@@ -1,5 +1,4 @@
 <?php
-
 include( "loginHandler.php" );
 ?>
 

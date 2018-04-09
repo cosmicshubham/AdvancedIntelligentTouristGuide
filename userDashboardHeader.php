@@ -1,5 +1,4 @@
 <?php
-include( "sessionRedirector.php" );
 $username = "aitgadmin";
 $password = "aitgadmin";
 $dbname = "aitgdb";
@@ -50,7 +49,7 @@ if ( mysqli_connect_errno() ) {
 		<nav class="navbar navbar-expand-sm navbar-default">
 			<div class="navbar-header">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation"> <i class="fa fa-bars"></i> </button>
-				<a class="navbar-brand" href="./">User Name</a> <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> </div>
+				<a class="navbar-brand" href="userindex.php">WELCOME</a> <a class="navbar-brand hidden" href="userindex.php"><img src="images/logo2.png" alt="Logo"></a> </div>
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"> <a href="userindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
@@ -126,7 +125,7 @@ if ( mysqli_connect_errno() ) {
 				<div class="col-sm-2">
 					<div class="user-area dropdown float-right"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar"> </a>
 						<div class="user-menu dropdown-menu">
-							<a class="nav-link" href="userindex.php"><i class="fa fa- user"></i>My Profile</a>
+							<a class="nav-link" href="userprofile.php"><i class="fa fa- user"></i>My Profile</a>
 							<!--
 							<a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a> 
 							<a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>

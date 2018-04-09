@@ -1,7 +1,8 @@
 
 
 
-<?php include( "mainHeader.php" ); ?>
+<?php
+include( "mainHeader.php" ); ?>
 
 <div class="tab-content">
 	<div class="tab-content-inner active" data-content="signup">

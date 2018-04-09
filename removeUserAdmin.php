@@ -1,5 +1,6 @@
 <?php
 include( "queryFunctions.php" );
+include( "sessionRedirector.php" );
 if ( isset( $_POST[ "btnremove" ] ) ) {
 	if ( removeUser( $_POST[ "cbuser" ] ) ) {
 		header( "Location: removeUserAdmin.php?status=UserRemoved" );

@@ -1,6 +1,6 @@
 <?php
-include( "queryFunctions.php" );
 include( "sessionRedirector.php" );
+include( "queryFunctions.php" );
 $userid = $_SESSION[ "userid" ];
 
 if ( isset( $_POST[ "add" ] ) ) {
