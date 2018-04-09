@@ -89,7 +89,7 @@ if ( mysqli_connect_errno() ) {
 						</ul>
 					</li>
 
-					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Users</a>
+					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user-circle"></i>Users</a>
 						<ul class="sub-menu children dropdown-menu">
 							<?php
 
@@ -97,7 +97,7 @@ if ( mysqli_connect_errno() ) {
 							$query = "SELECT * FROM users WHERE type = 'standard' ORDER BY username";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
-								$listelement =  "<li> <i class='fa fa-location-arrow'></i><a href='userinfo.php?targetuserid=" . $row[ "userid" ] . "'>" . $row[ "username" ] . " </a></li>";
+								$listelement =  "<li> <i class='fa fa-user'></i><a href='userinfo.php?targetuserid=" . $row[ "userid" ] . "'>" . $row[ "username" ] . " </a></li>";
 								echo($listelement);
 							}
 

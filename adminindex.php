@@ -49,7 +49,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
+					<div class="stat-icon dib"><i class="ti-layout-grid2 text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Places</div>
@@ -65,7 +65,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
+					<div class="stat-icon dib"><i class="ti-text text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Tagged Places</div>
@@ -82,7 +82,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-car text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Transports</div>
@@ -98,7 +98,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-tag text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Tags</div>
@@ -114,7 +114,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-location-arrow text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Place Feedbacks</div>
@@ -130,7 +130,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-plus text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">Positive Place Feedbacks</div>
@@ -146,7 +146,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-minus text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">Negative Place Feedbacks</div>
@@ -162,7 +162,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-settings text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">App Feedbacks</div>
@@ -178,7 +178,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-plus text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">Positive App Feedbacks</div>
@@ -194,7 +194,7 @@ include( "adminDashboardHeader.php" );
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-minus text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">Negative App Feedbacks</div>
