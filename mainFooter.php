@@ -22,7 +22,7 @@
 			<div class="row">
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a class="fh5co-card-item" href="registration.php">
+					<a class="fh5co-card-item" href="login.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_1.jpg" alt="Image" class="img-responsive">
@@ -35,7 +35,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a class="fh5co-card-item" href="registration.php">
+					<a class="fh5co-card-item" href="login.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_2.jpg" alt="Image" class="img-responsive">
@@ -48,7 +48,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a class="fh5co-card-item" href="registration.php">
+					<a class="fh5co-card-item" href="login.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_3.jpg" alt="Image" class="img-responsive">
@@ -63,7 +63,7 @@
 
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a class="fh5co-card-item" href="registration.php">
+					<a class="fh5co-card-item" href="login.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_4.jpg" alt="Image" class="img-responsive">
@@ -77,7 +77,7 @@
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a class="fh5co-card-item" href="registration.php">
+					<a class="fh5co-card-item" href="login.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_5.png" alt="Image" class="img-responsive">
@@ -91,7 +91,7 @@
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a class="fh5co-card-item" href="registration.php">
+					<a class="fh5co-card-item" href="login.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_6.jpg" alt="Image" class="img-responsive">

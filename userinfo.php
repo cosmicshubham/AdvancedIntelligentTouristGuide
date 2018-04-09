@@ -1,4 +1,24 @@
-<?php include( "adminDashboardHeader.php" );
+<?php
+include( "sessionRedirector.php" );
+include("queryFunctions.php");
+
+if (!isset( $_GET[ "targetuserid" ] ) ) {
+	header ("Location: adminindex.php?status=SomethingWentWrong");
+}
+
+$query = "SELECT uname, gender, aadharid, dob, phone, address FROM users WHERE userid = '" . $_GET[ "targetuserid" ] . "'";
+$results = mysqli_query( $connection, $query );
+//	$uname = $row[ 'uname' ];
+//	$gender = $row[ "gender" ];
+//	$aadharid = $row[ "aadharid" ];
+//	$dob = $row[ "dob" ];
+//	$phone = $row[ "phone" ];
+//	$address = $row[ "address" ];
+
+
+
+
+include( "adminDashboardHeader.php" );
 ?>
 <div class="breadcrumbs">
 	<div class="col-sm-4">
@@ -27,9 +47,9 @@
 				//echo( "<form method='post' action='placesTransportTags.php?placeid=" . $placeidCurrent . "'>" );
 				?>
 				<div class="form-group">
-					
+				<?php $row = mysqli_fetch_assoc( $results ); ?>
                 <label for="vat" class=" form-control-label">User Id</label>
-						<input type="text" id="vat" name="tbuserid" class="form-control col-lg-12" readonly>
+						<input type="text" id="vat" name="tbuserid" value='<?php $row[ "username"' ]; ?>' class="form-control col-lg-12" readonly>
 						
                     <label for="vat" class=" form-control-label">Username</label>
 						<input type="text" id="vat"  name="tbusername" class="form-control col-lg-12" readonly>

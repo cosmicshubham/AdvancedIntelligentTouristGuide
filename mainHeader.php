@@ -62,7 +62,7 @@
 			
 			<div class="row">
 				<div class="col-sm-12 col-xs-12">
-					<div id="gtco-logo"><a href="index.html">Advanced Intelligent Tourist Guide</a></div>
+					<div id="gtco-logo"><a href="index.php">Advanced Intelligent Tourist Guide</a></div>
 				</div>
 				
 			</div>

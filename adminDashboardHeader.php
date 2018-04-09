@@ -88,18 +88,26 @@ if ( mysqli_connect_errno() ) {
 
 						</ul>
 					</li>
-<!--
+
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Users</a>
 						<ul class="sub-menu children dropdown-menu">
-							<li><i class="fa fa-user"></i><a href="adminindex.php">Shubham</a>
-							</li>
-							<li><i class="fa fa-user"></i><a href="adminindex.php">Aakash</a>
-							</li>
-							<li><i class="fa fa-user"></i><a href="adminindex.php">Aakash</a>
-							</li>
+							<?php
+
+							global $connection;
+							$query = "SELECT * FROM users WHERE type = 'standard' ORDER BY username";
+							$results = mysqli_query( $connection, $query );
+							while ( $row = mysqli_fetch_assoc( $results ) ) {
+								$listelement =  "<li><i class='fa fa-location-arrow'></i><a href='userinfo.php?targetuserid=" . $row[ "userid" ] . "'>" . $row[ "username" ] . " </a></li>";
+								echo($listelement);
+							}
+
+
+
+
+							?>
 						</ul>
 					</li>
--->
+
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Operations</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-user-plus"></i><a href="addUserAdmin.php">Add User</a>
