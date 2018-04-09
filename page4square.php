@@ -26,6 +26,7 @@ $radius = 20000;
 
 ?>
 
+
 <div class="breadcrumbs">
 	<div class="col-sm-4">
 		<div class="page-header float-left">
