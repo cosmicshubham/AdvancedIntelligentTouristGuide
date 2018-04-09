@@ -88,6 +88,7 @@ if ( mysqli_connect_errno() ) {
 
 						</ul>
 					</li>
+<!--
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Users</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-user"></i><a href="adminindex.php">Shubham</a>
@@ -98,6 +99,7 @@ if ( mysqli_connect_errno() ) {
 							</li>
 						</ul>
 					</li>
+-->
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Operations</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-user-plus"></i><a href="addUserAdmin.php">Add User</a>

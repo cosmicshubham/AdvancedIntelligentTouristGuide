@@ -355,12 +355,72 @@ function checkUserTagExist( $userid, $tagid ) {
 }
 
 
+
 function checkPlaceTransportExist( $placeid, $transportid ) {
 	$query = "SELECT * FROM modeoftransport WHERE placeid = " . $placeid . " AND transportid = " . $transportid;
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
 	if ( $row  ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+
+
+function addUserPlaceFeedback( $userid, $placeid, $rating, $comment ) {
+
+	$query = "INSERT INTO userplacerating ( userid, placeid, placerating, comment) VALUES (" . $userid . ", " . $placeid . ", " . $rating . ", '" . $comment . "')";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+function updateUserPlaceFeedback( $userid, $placeid, $rating, $comment ) {
+	
+	$query = "UPDATE userplacerating SET placerating = " . $rating . ", comment = '" . $comment . "' WHERE userid = " . $userid . " AND placeid = " . $placeid;
+	
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+function removeUserPlaceFeedback( $userid, $placeid ) {
+
+	$query = "DELETE FROM userplacerating WHERE userid = " . $userid . " AND placeid = " . $placeid;
+
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+function checkUserPlaceFeedbackExist( $userid, $placeid ) {
+	$query = "SELECT * FROM userplacerating WHERE userid = " . $userid . " AND placeid = " . $placeid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( $row && $results ) {
 		return true;
 	} else {
 		return false;
