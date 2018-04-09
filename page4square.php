@@ -9,11 +9,6 @@ include( "foursquareHelper.php" );
 if ( !isset( $_POST[ "btnSearch" ] ) ) {
 	header( "Location: adminindex.php" );
 }
-if ( $type == "admin" ) {
-	include( "adminDashboardHeader.php" );
-} else {
-	include( "userDashboardHeader.php" );
-}
 global $connection;
 $query = "SELECT * FROM places WHERE placeid = " . $_POST["cbplaces"];
 $results = mysqli_query( $connection, $query );
@@ -23,7 +18,13 @@ $lat = $row["lattitude"];
 $long = $row[ "longitude" ];
 $name = $row[ "placename" ];
 $radius = 20000;
+$placeidheader = $_POST["cbplaces"];
 
+if ( $type == "admin" ) {
+	include( "adminDashboardHeader.php" );
+} else {
+	include( "userDashboardHeader.php" );
+}
 
 ?>
 

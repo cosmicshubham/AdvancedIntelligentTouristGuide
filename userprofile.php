@@ -4,11 +4,7 @@ include( "queryFunctions.php" );
 
 $userid = $_SESSION[ "userid" ];
 $type = getUserType( $userid );
-if ( $type == "admin" ) {
-	include( "adminDashboardHeader.php" );
-} else {
-	include( "userDashboardHeader.php" );
-}
+
 if ( isset( $_POST[ "submit" ] ) ) {
 
 	if ( updateUserDetails( $userid, $_POST[ "formname" ], $_POST[ "formgender" ], $_POST[ "formaadhar" ], $_POST[ "formdob" ], $_POST[ "formphone" ], $_POST[ "formaddress" ] ) ) {
@@ -32,9 +28,11 @@ if ( $row = mysqli_fetch_assoc( $results ) ) {
 } else {
 	header( "Location: userprofile.php?status=somethingWentWrong" );
 }
-
-
-
+if ( $type == "admin" ) {
+	include( "adminDashboardHeader.php" );
+} else {
+	include( "userDashboardHeader.php" );
+}
 
 ?>
 
@@ -45,7 +43,7 @@ if ( $row = mysqli_fetch_assoc( $results ) ) {
 		<div class="page-header float-left">
 			<div class="page-title">
 				<h1>
-					
+
 				</h1>
 			</div>
 		</div>
@@ -81,12 +79,24 @@ if ( $row = mysqli_fetch_assoc( $results ) ) {
 					<div class='form-group'>
 						<label for='vat' class=' form-control-label'>Gender</label>
 						<?php //echo ("<input type='text' id='vat' value= '". $gender . "' placeholder='Enter your gender' name='formgender' class='form-control col-lg-12'>"); ?>
-<!--						<div class="col-lg-12">-->
-							<select name="cbplaces" id="activities" class="form-control">
-                                <option value="">HEllo THere</option>
-							</select>
-<!--						</div>-->
-                        <br>
+						<!--						<div class="col-lg-12">-->
+						<select name="formgender" id="activities" class="form-control">
+
+							<?php
+							$maleSelect = ( $gender == "Male" ) ? "selected" : "";
+							$femaleSelect = ( $gender == "Female" ) ? "selected" : "";
+							$otherSelect = ( $gender == "Other" ) ? "selected" : "";
+
+							echo( " <option value='Male'" . $maleSelect . " >Male</option>" );
+							echo( " <option value='Female'" . $femaleSelect . " >Female</option>" );
+							echo( " <option value='Other'" . $otherSelect . " >Other</option>" );
+
+
+							?>
+
+						</select>
+						<!--						</div>-->
+						<br>
 						<label for='vat' class=' form-control-label'>Aadhar Id</label>
 						<?php echo ("<input type='text'id='vat1' value= '". $aadharid . "' placeholder='Enter your Aadhar id' name='formaadhar' class='form-control col-lg-12'>"); ?>
 						<br>
