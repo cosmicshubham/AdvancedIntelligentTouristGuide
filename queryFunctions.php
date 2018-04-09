@@ -290,11 +290,8 @@ function addUserPlaceRating( $userid, $placeid, $placerating, $comment ) {
 
 
 function updateUserPlaceRating( $userid, $placeid, $placerating, $comment ) {
-	if ( $password1 != $password2 ) {
-		return false;
-	}
 
-	$query = "UPDATE userplaceratings SET comment = " . $placerating . ", comment = '" . $comment . "' WHERE userid = " . $userid . " AND placeid = " . $placeid;
+	$query = "UPDATE userplaceratings SET placerating = " . $placerating . ", comment = '" . $comment . "' WHERE userid = " . $userid . " AND placeid = " . $placeid;
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
@@ -425,6 +422,20 @@ function checkUserPlaceFeedbackExist( $userid, $placeid ) {
 	} else {
 		return false;
 	}
+}
+
+function updateUserProductRating( $userid, $apprating, $comment ) {
+
+	$query = "UPDATE users SET apprating = " . $apprating . ", comment = '" . $comment . "' WHERE userid = " . $userid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
 }
 
 

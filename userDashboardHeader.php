@@ -79,7 +79,7 @@ if ( mysqli_connect_errno() ) {
 					</li>
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-align-justify"></i>Feedback</a>
 						<ul class="sub-menu children dropdown-menu">
-							<li><i class="menu-icon fa fa-th"></i><a href="userfeedback.php">Product</a>
+							<li><i class="menu-icon fa fa-th"></i><a href="userProductFeedback.php">Product</a>
 							</li>
 							<li><i class="menu-icon fa fa-th"></i><a href="userfeedback.php">Places</a>
 							</li>
