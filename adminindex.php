@@ -1,13 +1,14 @@
 <?php
 include( "sessionRedirector.php" );
 include( "queryFunctions.php" );
-include( "adminDashboardHeader.php" ); ?>
+include( "adminDashboardHeader.php" );
+?>
 
 <div class="breadcrumbs">
-    <div class="col-sm-4">
-        <div class="page-header float-left">
-            <div class="page-title">
-                <h1>
+	<div class="col-sm-4">
+		<div class="page-header float-left">
+			<div class="page-title">
+				<h1>
 					<?php 
 					if (isset($_GET["status"])) {
 						//var_dump($_GET);
@@ -15,9 +16,9 @@ include( "adminDashboardHeader.php" ); ?>
 					}
 					?>
 				</h1>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="content mt-3">
 	<div class="col-sm-12">
@@ -36,7 +37,9 @@ include( "adminDashboardHeader.php" ); ?>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Users</div>
-						<div class="stat-digit"><?php echo countUsers(); ?></div>
+						<div class="stat-digit">
+							<?php echo countUsers(); ?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -50,27 +53,32 @@ include( "adminDashboardHeader.php" ); ?>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Places</div>
-						<div class="stat-digit"><?php echo countPlaces(); ?></div>
+						<div class="stat-digit">
+							<?php echo countPlaces(); ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    <div class="col-xl-4 col-lg-3">
+		<div class="col-xl-4 col-lg-3">
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
-					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					<div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
 					</div>
 					<div class="stat-content dib">
-						<div class="stat-text">No. of Place Feedbacks</div>
-						<div class="stat-digit"><?php echo countPlacesFeedback(); ?></div>
+						<div class="stat-text">No. of Tagged Places</div>
+						<div class="stat-digit">
+							<?php echo countTaggedPlaces(); ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    <div class="col-xl-4 col-lg-3">
+
+	<div class="col-xl-4 col-lg-3">
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
@@ -78,13 +86,15 @@ include( "adminDashboardHeader.php" ); ?>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Transports</div>
-						<div class="stat-digit"><?php echo countTransport(); ?></div>
+						<div class="stat-digit">
+							<?php echo countTransport(); ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    <div class="col-xl-4 col-lg-3">
+	<div class="col-xl-4 col-lg-3">
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
@@ -92,12 +102,111 @@ include( "adminDashboardHeader.php" ); ?>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Tags</div>
-						<div class="stat-digit"><?php echo countTags(); ?></div>
+						<div class="stat-digit">
+							<?php echo countTags(); ?>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">No. of Place Feedbacks</div>
+						<div class="stat-digit">
+							<?php echo countPlacesFeedback(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">Positive Place Feedbacks</div>
+						<div class="stat-digit">
+							<?php echo countPositivePlaceFeedback(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">Negative Place Feedbacks</div>
+						<div class="stat-digit">
+							<?php echo countNegativePlaceFeedback(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">App Feedbacks</div>
+						<div class="stat-digit">
+							<?php echo countAppFeedback(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">Positive App Feedbacks</div>
+						<div class="stat-digit">
+							<?php echo countPositiveAppFeedback(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">Negative App Feedbacks</div>
+						<div class="stat-digit">
+							<?php echo countNegativeAppFeedback(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--
 	<div class="col-xl-6">
 		<div class="card">
 			<div class="card-header">
@@ -114,14 +223,9 @@ include( "adminDashboardHeader.php" ); ?>
 				</script>
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQle47vALGQKq5P_8fJYXHQmZEWSo4&callback=myMap"></script>
 			</div>
-			<!--
-                    <div class="Vector-map-js">
-                        <div id="vmap" class="vmap" style="height: 265px;"></div>
-                    </div>
--->
 		</div>
-		<!-- /# card -->
 	</div>
+-->
 </div>
 <!-- .content --> 
 </div>

@@ -466,6 +466,7 @@ function countPlaces() {
 
 }
 
+
 function countPlacesFeedback() {
 	$query = "SELECT count(id) as c FROM userplacerating";
 	global $connection;
@@ -506,6 +507,83 @@ function countTags() {
 
 }
 
+function countPositivePlaceFeedback() {
+	$query = "SELECT count(id) as c FROM userplacerating WHERE placerating > 5";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "c" ];
+	} else {
+		return 0;
+	}
+
+}
+
+function countNegativePlaceFeedback() {
+	$query = "SELECT count(id) as c FROM userplacerating WHERE placerating <= 5 AND placerating > 0";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "c" ];
+	} else {
+		return 0;
+	}
+
+}
+
+function countAppFeedback() {
+	$query = "SELECT count(userid) as c FROM users WHERE apprating > 0";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "c" ];
+	} else {
+		return 0;
+	}
+
+}
+
+function countPositiveAppFeedback() {
+	$query = "SELECT count(userid) as c FROM users WHERE apprating > 5";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "c" ];
+	} else {
+		return 0;
+	}
+
+}
+
+function countNegativeAppFeedback() {
+	$query = "SELECT count(userid) as c FROM users WHERE apprating <= 5 AND apprating > 0";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "c" ];
+	} else {
+		return 0;
+	}
+
+}
+
+function countTaggedPlaces() {
+	$query = "SELECT count(placeid) as c FROM placestags GROUP BY placeid";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "c" ];
+	} else {
+		return 0;
+	}
+
+}
 
 function redirect( $type ) {
 	if ( $type == "admin" ) {
