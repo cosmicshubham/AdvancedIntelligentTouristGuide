@@ -27,46 +27,71 @@ include( "adminDashboardHeader.php" ); ?>
 
 	<!--/.col-->
 
-	<div class="col-lg-3 col-md-6">
-		<div class="social-box facebook"> <i class="fa fa-facebook"></i> </div>
-	</div>
-	<!--/.col-->
-
-	<div class="col-lg-3 col-md-6">
-		<div class="social-box twitter"> <i class="fa fa-twitter"></i> </div>
-		<!--/social-box-->
-	</div>
-	<!--/.col-->
-
-	<div class="col-lg-3 col-md-6">
-		<div class="social-box linkedin"> <i class="fa fa-linkedin"></i> </div>
-		<!--/social-box-->
-	</div>
-	<!--/.col-->
-
-	<div class="col-xl-3 col-lg-6">
+	<div class="col-xl-4 col-lg-3">
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
 					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
-						<div class="stat-text">Users</div>
+						<div class="stat-text">No. of Users</div>
 						<div class="stat-digit">3</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-xl-3 col-lg-6">
+	<div class="col-xl-4 col-lg-3">
 		<div class="card">
 			<div class="card-body">
 				<div class="stat-widget-one">
 					<div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i>
 					</div>
 					<div class="stat-content dib">
-						<div class="stat-text">Places</div>
+						<div class="stat-text">No. of Places</div>
 						<div class="stat-digit">5</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">No. of feedback</div>
+						<div class="stat-digit">3</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">No. of transports</div>
+						<div class="stat-digit">3</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="col-xl-4 col-lg-3">
+		<div class="card">
+			<div class="card-body">
+				<div class="stat-widget-one">
+					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
+					</div>
+					<div class="stat-content dib">
+						<div class="stat-text">No. of tags</div>
+						<div class="stat-digit">3</div>
 					</div>
 				</div>
 			</div>
