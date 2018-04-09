@@ -1,50 +1,83 @@
 <?php
-include( "queryFunctions.php" );
-include( "sessionRedirector.php" );
-$userid = $_SESSION[ "userid" ];
-$type = getUserType( $userid );
+session_start();
+$loginUser = $_SESSION[ "user" ];
+if ( isset( $_GET[ "status" ] ) ) {
+	$status = $_GET[ "status" ];
+} else {
+	$status = "";
+}
+?>
+
+<?php
+$username = "aitgadmin";
+$password = "aitgadmin";
+$dbname = "aitgdb";
+$dbhost = "localhost";
+$connection = mysqli_connect( $dbhost, $username, $password, $dbname );
+
+
+
+if ( mysqli_connect_errno() ) {
+	die( "Database connection failed: " . mysqli_connect_error() . mysqli_connect_errno() );
+}
 
 if ( isset( $_POST[ "submit" ] ) ) {
 
-	if ( updateUserDetails( $userid, $_POST[ "formname" ], $_POST[ "formgender" ], $_POST[ "formaadhar" ], $_POST[ "formdob" ], $_POST[ "formphone" ], $_POST[ "formaddress" ] ) ) {
-		header( "Location: userprofile.php?status=DetailsUpdated" );
+
+	$uname = $_POST[ "formname" ];
+	$gender = $_POST[ "formgender" ];
+	$aadharid = $_POST[ "formaadhar" ];
+	$dob = $_POST[ "formdob" ];
+	$phone = $_POST[ "formphone" ];
+	$address = $_POST[ "formaddress" ];
+
+
+	$query = "UPDATE users SET uname = '" . $uname . "', gender = '" . $gender . "', aadharid = '" . $aadharid . "', dob = '" . $dob . "', phone = '" . $phone . "', address = '" . $address . "' WHERE username = '" . $loginUser . "'";
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) != 1 ) {
+		$status = "error!";
 	} else {
-		header( "Location: userprofile.php?status=somethingWentWrong" );
+		$status = "updated!";
+	}
+} else {
+	$query = "SELECT uname, gender, aadharid, dob, phone, address FROM users WHERE username = '" . $loginUser . "'";
+	$results = mysqli_query( $connection, $query );
+	;
+	if ( $row = mysqli_fetch_assoc( $results )) {
+		$uname = $row['uname'];
+		$gender = $row[ "gender" ];
+		$aadharid = $row[ "aadharid" ];
+		$dob = $row[ "dob" ];
+		$phone = $row[ "phone" ];
+		$address = $row[ "address" ];
+		
+	} else {
+		header( "Location: login.php?status=wrong" );
 	}
 
 }
 
-$query = "SELECT uname, gender, aadharid, dob, phone, address FROM users WHERE userid = '" . $userid . "'";
-$results = mysqli_query( $connection, $query );
-if ( $row = mysqli_fetch_assoc( $results ) ) {
-	$uname = $row[ 'uname' ];
-	$gender = $row[ "gender" ];
-	$aadharid = $row[ "aadharid" ];
-	$dob = $row[ "dob" ];
-	$phone = $row[ "phone" ];
-	$address = $row[ "address" ];
 
-} else {
-	header( "Location: userprofile.php?status=somethingWentWrong" );
-}
-
-
-if ( $type == "admin" ) {
-	include( "adminDashboardHeader.php" );
-} else {
-	include( "userDashboardHeader.php" );
-}
 
 ?>
 
 
+
+
+
+<?php
+
+
+include( "../userDashboardHeader.php" );
+?>
 
 <div class="breadcrumbs">
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
 				<h1>
-					
+					<?php echo $status ?>
 				</h1>
 			</div>
 		</div>
@@ -53,14 +86,7 @@ if ( $type == "admin" ) {
 		<div class="page-header float-right">
 			<div class="page-title">
 				<ol class="breadcrumb text-right">
-					<li class="active">
-						<?php 
-					if (isset($_GET["status"])) {
-						//var_dump($_GET);
-						echo $_GET["status"];
-					}
-					?>
-					</li>
+					<li class="active"><?php echo $loginUser; ?></li>
 				</ol>
 			</div>
 		</div>
@@ -72,7 +98,7 @@ if ( $type == "admin" ) {
 			<div class="card-header"><strong>User Preferences</strong>
 			</div>
 			<div class="card-body card-block">
-				<form method="post" action="userprofile.php">
+				<form method="post" action="../userprofile.php">
 					<div class='form-group'>
 						<label for='company' class=' form-control-label'>Name</label>
 						<?php echo ("<input type='text' id='company' value= '". $uname . "' name='formname' class='form-control'>"); ?>
@@ -105,11 +131,4 @@ if ( $type == "admin" ) {
 </div>
 <!-- .content --> 
 </div>
-<?php
-if ( $type == "admin" ) {
-	include( "adminDashboardFooter.php" );
-} else {
-	include( "userDashboardFooter.php" );
-}
-
-?>
+<?php include( "../userDashboardFooter.php" ); ?>

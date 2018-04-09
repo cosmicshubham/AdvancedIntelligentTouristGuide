@@ -1,13 +1,19 @@
 <?php
+
+include( "queryFunctions.php" );
+include( "sessionRedirector.php" );
+$userid = $_SESSION[ "userid" ];
+$type = getUserType( $userid );
 include( "foursquareHelper.php" );
-include( "adminDashboardHeader.php" );
 
 if ( !isset( $_POST[ "btnSearch" ] ) ) {
 	header( "Location: adminindex.php" );
 }
-
-
-
+if ( $type == "admin" ) {
+	include( "adminDashboardHeader.php" );
+} else {
+	include( "userDashboardHeader.php" );
+}
 global $connection;
 $query = "SELECT * FROM places WHERE placeid = " . $_POST["cbplaces"];
 $results = mysqli_query( $connection, $query );
@@ -88,4 +94,9 @@ foreach ( $resultFrom4s as $i ) {
 
 ?>
 </div>
-<?php include( "adminDashboardFooter.php" ); ?>
+<?php
+if ( $type == "admin" ) {
+	include( "adminDashboardFooter.php" );
+} else {
+	include( "userDashboardFooter.php" );
+}

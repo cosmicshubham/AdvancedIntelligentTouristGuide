@@ -1,5 +1,5 @@
 <?php
-include( "adminDashboardHeader.php" );
+include( "../adminDashboardHeader.php" );
 $client_key = "JPBEZAJ1STTXOB0BLE5FQTA0A421K2HMBA1IHKDLGPDPDHCM";
 $client_secret = "OFLMCJQZYOZXMLDAAMD4K1SP20LH0D0H4DB3F4BU4I5YRDR1";
 //$client_key = "JVAH23FK35WYAJQRX3QHKPH5PYKQGFAPFXPRJWTGDT0HWVBT";
@@ -165,4 +165,4 @@ function getVenuesListUsingLatLng( $lat, $lng, $radius = 20000 ) {
 <!-- .content --> 
 </div>
 <!-- /#right-panel --> 
-<?php include( "adminDashboardFooter.php" ); ?>
+<?php include( "../adminDashboardFooter.php" ); ?>

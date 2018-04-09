@@ -1,4 +1,4 @@
-<?php include( "userDashboardHeader.php" );
+<?php include( "../userDashboardHeader.php" );
 $client_key="JPBEZAJ1STTXOB0BLE5FQTA0A421K2HMBA1IHKDLGPDPDHCM";
 $client_secret = "OFLMCJQZYOZXMLDAAMD4K1SP20LH0D0H4DB3F4BU4I5YRDR1";
 function callGetApi($url) {
@@ -147,4 +147,4 @@ function getVenuesListUsingLatLng($lat, $lng, $radius = 20000) {
     
     
 <!-- /#right-panel --> 
-<?php include( "userDashboardFooter.php" ); ?>
+<?php include( "../userDashboardFooter.php" ); ?>

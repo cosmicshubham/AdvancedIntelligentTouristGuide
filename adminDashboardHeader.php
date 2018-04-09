@@ -58,6 +58,14 @@ if ( mysqli_connect_errno() ) {
 				<ul class="nav navbar-nav">
 					<li class="active"> <a href="adminindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
 					<h3 class="menu-title">Manage</h3>
+					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-align-justify"></i>Preferences</a>
+						<ul class="sub-menu children dropdown-menu">
+							<li><i class="fa fa-vcard"></i><a href="userprofile.php">Basic Profile</a>
+							</li>
+							<li><i class="fa fa-vcard"></i><a href="updateUserPassword.php">Update User Password</a>
+							</li>
+						</ul>
+					</li>
 					<!-- /.menu-title -->
 					<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-location-arrow"></i>Place Transport and Tags</a>
 						<ul class="sub-menu children dropdown-menu">
@@ -129,7 +137,7 @@ if ( mysqli_connect_errno() ) {
         <header id="header" class="header">
             <div class="header-menu">
                 <div class="col-sm-10"> <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <form action="admin4Square.php" method="post">
+                    <form action="page4square.php" method="post">
 						<div class="col-sm-6">
 							<select name="cbplaces" id="activities" class="form-control">
 							<?php

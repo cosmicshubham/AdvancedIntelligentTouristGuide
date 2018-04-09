@@ -52,7 +52,7 @@ if ( mysqli_connect_errno() ) {
 				<a class="navbar-brand" href="./">User Name</a> <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> </div>
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"> <a href="adminindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
+					<li class="active"> <a href="userindex.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a> </li>
 					<!--<li class="menu-item-has-children dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Travel</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-user"></i><a href="userapi.php">Location</a>
@@ -102,7 +102,7 @@ if ( mysqli_connect_errno() ) {
 		<header id="header" class="header">
 			<div class="header-menu">
 				<div class="col-sm-10"> <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-					<form action="user4square.php" method="post">
+					<form action="page4square.php" method="post">
 						<div class="col-sm-6">
 							<select name="cbplaces" id="activities" class="form-control">
 							<?php
