@@ -8,16 +8,16 @@ $userid = $_SESSION[ "userid" ];
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
-				<h1>Welcome</h1>
+                 <?php echo "<h1>Welcome Standard User Id ".$userid ."</h1>"?>
 			</div>
 		</div>
 	</div>
 	<div class="col-sm-8">
 		<div class="page-header float-right">
 			<div class="page-title">
-				<ol class="breadcrumb text-right">
+				<ol class="breadcrumb text-left">
 					<li class="active">
-						<?php echo $userid ?>
+						<?php //echo "User Id ".$userid ?>
 					</li>
 				</ol>
 			</div>
