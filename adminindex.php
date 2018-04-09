@@ -1,5 +1,6 @@
 <?php
 include( "sessionRedirector.php" );
+include( "queryFunctions.php" );
 include( "adminDashboardHeader.php" ); ?>
 
 <div class="breadcrumbs">
@@ -35,7 +36,7 @@ include( "adminDashboardHeader.php" ); ?>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Users</div>
-						<div class="stat-digit">3</div>
+						<div class="stat-digit"><?php echo countUsers(); ?></div>
 					</div>
 				</div>
 			</div>
@@ -49,7 +50,7 @@ include( "adminDashboardHeader.php" ); ?>
 					</div>
 					<div class="stat-content dib">
 						<div class="stat-text">No. of Places</div>
-						<div class="stat-digit">5</div>
+						<div class="stat-digit"><?php echo countPlaces(); ?></div>
 					</div>
 				</div>
 			</div>
@@ -62,8 +63,8 @@ include( "adminDashboardHeader.php" ); ?>
 					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
-						<div class="stat-text">No. of feedback</div>
-						<div class="stat-digit">3</div>
+						<div class="stat-text">No. of Place Feedbacks</div>
+						<div class="stat-digit"><?php echo countPlacesFeedback(); ?></div>
 					</div>
 				</div>
 			</div>
@@ -76,8 +77,8 @@ include( "adminDashboardHeader.php" ); ?>
 					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
-						<div class="stat-text">No. of transports</div>
-						<div class="stat-digit">3</div>
+						<div class="stat-text">No. of Transports</div>
+						<div class="stat-digit"><?php echo countTransport(); ?></div>
 					</div>
 				</div>
 			</div>
@@ -90,8 +91,8 @@ include( "adminDashboardHeader.php" ); ?>
 					<div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i>
 					</div>
 					<div class="stat-content dib">
-						<div class="stat-text">No. of tags</div>
-						<div class="stat-digit">3</div>
+						<div class="stat-text">No. of Tags</div>
+						<div class="stat-digit"><?php echo countTags(); ?></div>
 					</div>
 				</div>
 			</div>

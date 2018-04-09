@@ -438,6 +438,70 @@ function updateUserProductRating( $userid, $apprating, $comment ) {
 
 }
 
+function countUsers()  {
+	$query = "SELECT count(userid) as c FROM users";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row["c"];
+	} else {
+		return 0;
+	}
+	
+}
+function countPlaces()  {
+	$query = "SELECT count(placeid) as c FROM places";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row["c"];
+	} else {
+		return 0;
+	}
+	
+}
+
+function countPlacesFeedback()  {
+	$query = "SELECT count(id) as c FROM userplacerating";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row["c"];
+	} else {
+		return 0;
+	}
+	
+}
+
+function countTransport()  {
+	$query = "SELECT count(transportid) as c FROM transports";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row["c"];
+	} else {
+		return 0;
+	}
+	
+}
+
+
+function countTags()  {
+	$query = "SELECT count(tagid) as c FROM tags";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row["c"];
+	} else {
+		return 0;
+	}
+	
+}
 
 
 

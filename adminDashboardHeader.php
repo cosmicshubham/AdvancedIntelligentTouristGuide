@@ -144,12 +144,14 @@ if ( mysqli_connect_errno() ) {
 						<div class="col-sm-6">
 							<select name="cbplaces" id="activities" class="form-control">
 							<?php
+							$temp = isset($placeidheader) ? $placeidheader : "";
 
 							global $connection;
 							$query = "SELECT * FROM places";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
-								echo( "<option value = '" . $row[ "placeid" ] . "' >" . $row[ "placename" ] . " </option>" );
+								$selectedText = ($row[ "placeid" ] == $temp) ? "selected" : "";
+								echo( "<option value = '" . $row[ "placeid" ] . "' " . $selectedText . " >" . $row[ "placename" ] . " </option>" );
 							}
 							?>
 							</select>
