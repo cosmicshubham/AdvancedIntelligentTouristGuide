@@ -22,7 +22,7 @@
 			<div class="row">
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_1.jpg" class="fh5co-card-item image-popup">
+					<a class="fh5co-card-item" href="registration.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_1.jpg" alt="Image" class="img-responsive">
@@ -35,7 +35,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_2.jpg" class="fh5co-card-item image-popup">
+					<a class="fh5co-card-item" href="registration.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_2.jpg" alt="Image" class="img-responsive">
@@ -48,7 +48,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_3.jpg" class="fh5co-card-item image-popup">
+					<a class="fh5co-card-item" href="registration.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_3.jpg" alt="Image" class="img-responsive">
@@ -63,7 +63,7 @@
 
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_4.jpg" class="fh5co-card-item image-popup">
+					<a class="fh5co-card-item" href="registration.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_4.jpg" alt="Image" class="img-responsive">
@@ -77,7 +77,7 @@
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_5.jpg" class="fh5co-card-item image-popup">
+					<a class="fh5co-card-item" href="registration.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_5.png" alt="Image" class="img-responsive">
@@ -85,13 +85,13 @@
 						<div class="fh5co-text">
 							<h2>Daman and Diu</h2>
 							<p>Daman and Diu, a union territory in west India, consists of 2 separate areas divided by the Arabian Sea. The Daman Ganga River flows through the coastal town of Daman. Diu is a small island and mainland village. The Fort of Moti Daman, Diu Fort and 16th-century churches reflect the territory’s past as a Portuguese colony.</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
+                           <p><span class="btn btn-primary">Schedule a Trip</span></p>
 						</div>
 					</a>
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_6.jpg" class="fh5co-card-item image-popup">
+					<a class="fh5co-card-item" href="registration.php">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
 							<img src="images/img_6.jpg" alt="Image" class="img-responsive">
