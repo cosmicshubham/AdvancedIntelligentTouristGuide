@@ -1,12 +1,6 @@
 <?php
 
-include( "queryFunctions.php" );
-
-session_start();
-if ( isset( $_SESSION[ "userid" ] ) ) {
-	$type = redirect( getUserType( $_SESSION[ "userid" ] ) );
-	redirect( $type );
-}
+include_once( "queryFunctions.php" );
 
 
 if ( isset( $_POST[ "submit" ] ) ) {
@@ -30,17 +24,6 @@ if ( isset( $_POST[ "submit" ] ) ) {
 	}
 
 
-}
-
-
-
-
-function redirect( $type ) {
-	if ( $type == "admin" ) {
-		header( "Location: adminindex.php" );
-	} else {
-		header( "Location: userindex.php" );
-	}
 }
 
 

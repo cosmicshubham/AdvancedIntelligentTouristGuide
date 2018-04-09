@@ -504,6 +504,14 @@ function countTags()  {
 }
 
 
+function redirect( $type ) {
+	if ( $type == "admin" ) {
+		header( "Location: adminindex.php" );
+	} else {
+		header( "Location: userindex.php" );
+	}
+}
+
 
 
 
