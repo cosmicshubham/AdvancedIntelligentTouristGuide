@@ -1,6 +1,6 @@
 <?php
 include( "queryFunctions.php" );
-include( "sessionRedirector.php" );
+
 $userid = $_SESSION[ "userid" ];
 $type = getUserType( $userid );
 

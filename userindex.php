@@ -1,16 +1,9 @@
 <?php
-session_start();
 
-if ( isset( $_SESSION[ "userid" ] ) ) {
-	$userid = $_SESSION[ "userid" ];
-} else {
-	header( "Location: login.php?status=expire" );
-}
+include( "userDashboardHeader.php" );
+$userid = $_SESSION[ "userid" ];
 
-
-?>
-<?php include( "userDashboardHeader.php" ); ?>
-
+ ?>
 <div class="breadcrumbs">
 	<div class="col-sm-4">
 		<div class="page-header float-left">

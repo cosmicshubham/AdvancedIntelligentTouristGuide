@@ -1,4 +1,5 @@
 <?php
+include( "sessionRedirector.php" );
 $username = "aitgadmin";
 $password = "aitgadmin";
 $dbname = "aitgdb";
