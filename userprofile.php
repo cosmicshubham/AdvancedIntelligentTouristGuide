@@ -79,8 +79,13 @@ if ( $type == "admin" ) {
 					</div>
 					<div class='form-group'>
 						<label for='vat' class=' form-control-label'>Gender</label>
-						<?php echo ("<input type='text' id='vat' value= '". $gender . "' placeholder='Enter your gender' name='formgender' class='form-control col-lg-12'>"); ?>
-						<br>
+						<?php //echo ("<input type='text' id='vat' value= '". $gender . "' placeholder='Enter your gender' name='formgender' class='form-control col-lg-12'>"); ?>
+<!--						<div class="col-lg-12">-->
+							<select name="cbplaces" id="activities" class="form-control">
+                                <option value="">HEllo THere</option>
+							</select>
+<!--						</div>-->
+                        <br>
 						<label for='vat' class=' form-control-label'>Aadhar Id</label>
 						<?php echo ("<input type='text'id='vat1' value= '". $aadharid . "' placeholder='Enter your Aadhar id' name='formaadhar' class='form-control col-lg-12'>"); ?>
 						<br>
