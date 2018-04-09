@@ -97,7 +97,7 @@ if ( mysqli_connect_errno() ) {
 							$query = "SELECT * FROM users WHERE type = 'standard' ORDER BY username";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
-								$listelement =  "<li><i class='fa fa-location-arrow'></i><a href='userinfo.php?targetuserid=" . $row[ "userid" ] . "'>" . $row[ "username" ] . " </a></li>";
+								$listelement =  "<li> <i class='fa fa-location-arrow'></i><a href='userinfo.php?targetuserid=" . $row[ "userid" ] . "'>" . $row[ "username" ] . " </a></li>";
 								echo($listelement);
 							}
 
