@@ -137,7 +137,7 @@ include( "adminDashboardHeader.php" );
 					<select name="cbtags" id="activities" class="form-control">
 						<?php
 						global $connection;
-						$query = "SELECT * FROM tags";
+						$query = "SELECT * FROM tags ORDER BY tagname";
 						$results = mysqli_query( $connection, $query );
 						while ( $row = mysqli_fetch_assoc( $results ) ) {
 							echo( "<option value = '" . $row[ "tagid" ] . "' >" . $row[ "tagname" ] . " </option>" );
@@ -183,7 +183,7 @@ include( "adminDashboardHeader.php" );
 							<select name="cbTransports" id="activities" class="form-control">
 								<?php
 								global $connection;
-								$query = "SELECT * FROM transports";
+								$query = "SELECT * FROM transports ORDER BY transportname";
 								$results = mysqli_query( $connection, $query );
 								while ( $row = mysqli_fetch_assoc( $results ) ) {
 									echo( "<option value = '" . $row[ "transportid" ] . "' >" . $row[ "transportname" ] . " </option>" );

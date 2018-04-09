@@ -74,7 +74,7 @@ if ( mysqli_connect_errno() ) {
 							<?php
 
 							global $connection;
-							$query = "SELECT * FROM places";
+							$query = "SELECT * FROM places ORDER BY placename";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
 								$listelement =  "<li><i class='fa fa-location-arrow'></i><a href='placesTransportTags.php?placeid=" . $row[ "placeid" ] . "'>" . $row[ "placename" ] . " </a></li>";
@@ -155,7 +155,7 @@ if ( mysqli_connect_errno() ) {
 							$temp = isset($placeidheader) ? $placeidheader : "";
 
 							global $connection;
-							$query = "SELECT * FROM places";
+							$query = "SELECT * FROM places ORDER BY placename";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
 								$selectedText = ($row[ "placeid" ] == $temp) ? "selected" : "";

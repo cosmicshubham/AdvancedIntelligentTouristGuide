@@ -136,7 +136,7 @@ include( "adminDashboardHeader.php" );
 			</div>
 			<div class="card-body card-block">
 				<?php
-				$queryPlaceRating = "SELECT placename, placerating, comment FROM userplacerating, places WHERE userplacerating.placeid = places.placeid AND userid = " . $_GET[ "targetuserid" ];
+				$queryPlaceRating = "SELECT placename, placerating, comment FROM userplacerating, places WHERE userplacerating.placeid = places.placeid AND userid = " . $_GET[ "targetuserid" ] . " ORDER BY placename";
 				$resultsPlaceRating = mysqli_query( $connection, $queryPlaceRating );
 				while ( $rowPlaceRating = mysqli_fetch_assoc( $resultsPlaceRating ) ) {
 					echo( "<div class='form-group'>" );

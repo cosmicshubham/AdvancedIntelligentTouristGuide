@@ -43,7 +43,7 @@ include( "adminDashboardHeader.php" );
 								<select name="cbuser" id="activities" class="form-control">
 									<?php
 									global $connection;
-									$query = "SELECT * FROM users";
+									$query = "SELECT * FROM users ORDER BY type, username";
 									$results = mysqli_query( $connection, $query );
 									while ( $row = mysqli_fetch_assoc( $results ) ) {
 										echo( "<option value = '" . $row[ "userid" ] . "' >" . $row[ "username" ] . " (" . $row[ type ] . ") </option>" );

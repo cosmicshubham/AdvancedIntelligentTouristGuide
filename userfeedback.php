@@ -72,7 +72,7 @@ include( "userDashboardHeader.php" );
 						<select name="cbplace" id="activities" class="form-control">
 							<?php
 							global $connection;
-							$query = "SELECT * FROM places";
+							$query = "SELECT * FROM places ORDER BY placename";
 							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
 								echo( "<option value = '" . $row[ "placeid" ] . "' >" . $row[ "placename" ] . " </option>" );

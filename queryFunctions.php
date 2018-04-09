@@ -243,8 +243,12 @@ function addNewUser( $username, $password1, $password2, $type ) {
 		return -1;
 	}
 	
-	if (!filter_var($username, FILTER_VALIDATE_EMAIL) ||$password1 != $password2 ) {
-		return -1;
+	if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
+		return -2;
+	}
+	
+	if ( $password1 != $password2 ) {
+		return -3;
 	}
 	
 
@@ -600,7 +604,7 @@ function redirect( $type ) {
 }
 
 function getCurrentUserTags( $userid ) {
-	$query = "SELECT tagname FROM usertags, tags WHERE usertags.tagid = tags.tagid AND userid = " . $userid;
+	$query = "SELECT tagname FROM usertags, tags WHERE usertags.tagid = tags.tagid AND userid = " . $userid . " ORDER BY tagname";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
@@ -615,7 +619,7 @@ function getCurrentUserTags( $userid ) {
 }
 
 function getCurrentPlaceTransport( $placeid ) {
-	$query = "SELECT transportname FROM modeoftransport, transports WHERE modeoftransport.transportid = transports.transportid AND placeid = " . $placeid;
+	$query = "SELECT transportname FROM modeoftransport, transports WHERE modeoftransport.transportid = transports.transportid AND placeid = " . $placeid . " ORDER BY transportname";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
@@ -630,7 +634,7 @@ function getCurrentPlaceTransport( $placeid ) {
 }
 
 function getCurrentPlaceTags( $placeid ) {
-	$query = "SELECT tagname FROM placestags, tags WHERE placestags.tagid = tags.tagid AND placeid = " . $placeid;
+	$query = "SELECT tagname FROM placestags, tags WHERE placestags.tagid = tags.tagid AND placeid = " . $placeid . " ORDER BY tagname";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
