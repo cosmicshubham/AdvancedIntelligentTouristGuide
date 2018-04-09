@@ -74,12 +74,15 @@ foreach ( $resultFrom4s as $i ) {
         //$add
 	} else
 		$add = "<br>";
+    echo( "         <div class='stat-text'><mark>" . $add . "<mark></div>" );
+    if ( isset( $i[ 'rating' ] ) ) {
+		echo( "         <div class='stat-text '><strong>Ratings : </strong></div>" );
+		$rate = $i[ 'rating' ];
+	} else
+		$rate = "<br>";
 
-
-
-	echo( "         <div class='stat-text'><mark>" . $add . "<mark></div>" );
-	echo( "         <div class='stat-text '><strong> Ratings : </strong></div>" );
-	echo( "         <div class='stat-text'><mark>" . $i[ 'rating' ] . "<mark></div>" );
+	
+	echo( "         <div class='stat-text'><mark>" . $rate . "<mark></div>" );
 	echo( "
                         
                     </div>
