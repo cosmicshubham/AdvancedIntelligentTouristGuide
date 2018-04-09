@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2018 at 10:27 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Apr 09, 2018 at 12:01 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,7 +65,42 @@ INSERT INTO `places` (`placeid`, `placename`, `lattitude`, `longitude`) VALUES
 (2, 'Mumbai', '19.0760', '72.8777'),
 (3, 'Chennai', '13.0827', '80.2707'),
 (4, 'Delhi', '28.7041', '77.1025'),
-(7, 'Allahabad', '25.4358', '81.8463');
+(7, 'Allahabad', '25.4358', '81.8463'),
+(8, 'Ajanta Caves', '25.4358', '75.7033'),
+(9, 'Lonavala', '18.7546', '73.4062'),
+(10, 'Mahabaleshwar', '17.9307', '73.6477'),
+(11, 'Pune', '18.5204', '73.8567'),
+(12, 'Shirdi', '18.5204', '73.8567'),
+(13, 'Ellora Caves', '20.0268', '75.1771'),
+(14, 'Ganpatipule', '17.1489', '73.2727'),
+(15, 'Nashik', '19.9975', '73.7898'),
+(16, 'Ratnagiri', '16.9902', '73.3120'),
+(17, 'Tadoba National Park', '20.2484', '79.3607'),
+(18, 'Matheran', '18.9887', '73.2712'),
+(19, 'Aurangabad', '19.8762', '75.3433'),
+(20, 'Panchgani', '17.9236', '73.7983'),
+(21, 'Agra', '27.1767', '78.0081'),
+(22, 'Lucknow', '26.8467', '80.9462'),
+(23, 'Varanasi', '25.3176', '82.9739'),
+(24, 'Mathura', '27.4924', '77.6737'),
+(25, 'Ayodhya', '26.7880', '82.1986'),
+(26, 'Kushinagar', '26.8102', '83.9744'),
+(27, 'Sarnath', '25.3762', '83.0227'),
+(28, 'Aligarh', '27.8974', '78.0880'),
+(29, 'Jhansi', '25.4484', '78.5685'),
+(30, 'Dehradun', '30.3165', '78.0322'),
+(31, 'Nainital', '29.3803', '79.4636'),
+(32, 'Mussoorie', '30.4599', '78.0664'),
+(33, 'Rishikesh', '30.0869', '78.2676'),
+(34, 'Haridwar', '29.9457', '78.1642'),
+(35, 'Kedarnath', '30.7346', '79.0669'),
+(36, 'Badrinath', '30.7433', '79.4938'),
+(37, 'Ranikhet', '29.6434', '79.4322'),
+(38, 'Chandigarh', '30.7333', '76.7794'),
+(39, 'Gurugram', '28.4595', '77.0266'),
+(40, 'Kurukshetra', '29.9695', '76.8783'),
+(41, 'Panipat', '29.3909', '76.9635'),
+(42, 'Kolkata', '22.5726', '88.3639');
 
 -- --------------------------------------------------------
 
@@ -79,15 +114,6 @@ CREATE TABLE `placestags` (
   `tagid` int(11) NOT NULL,
   `weight` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `placestags`
---
-
-INSERT INTO `placestags` (`id`, `placeid`, `tagid`, `weight`) VALUES
-(2, 1, 3, 9),
-(4, 3, 4, 3),
-(8, 1, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -105,10 +131,40 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`tagid`, `tagname`) VALUES
-(1, 'trekking'),
-(2, 'swimming'),
-(3, 'forestSafari'),
-(4, 'rafting');
+(7, 'Paragliding'),
+(8, 'Bungee Jumping'),
+(9, 'Kayaking '),
+(10, 'Glacier Climbing'),
+(11, 'Dirt Biking'),
+(12, 'Skiing'),
+(13, 'Kite Wing'),
+(14, 'Bobsledding'),
+(15, 'Zorbing'),
+(16, 'Surfing'),
+(17, 'Moutain Biking'),
+(18, 'Rock Climbing'),
+(19, 'Orienteering'),
+(20, 'Hang Gliding'),
+(21, 'Hiking'),
+(22, 'Rafting'),
+(23, 'Underwater Walk'),
+(24, 'Heli Skiing'),
+(25, 'Caving'),
+(26, 'Hot Air Ballooning'),
+(27, 'Flying Fox'),
+(28, 'Mountain Cycling'),
+(29, 'Desert Clamping'),
+(30, 'Para Sailing'),
+(31, 'Microflight Flying'),
+(32, 'Trekking'),
+(33, 'Angling'),
+(34, 'Canoeing'),
+(35, 'Scuba Diving'),
+(36, 'Wildlife Safari'),
+(37, 'Wind Surfing'),
+(38, 'Motorcycle Trip'),
+(39, 'Jeep Safari'),
+(40, 'Dune Bashing');
 
 -- --------------------------------------------------------
 
@@ -191,13 +247,6 @@ CREATE TABLE `usertags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usertags`
---
-
-INSERT INTO `usertags` (`id`, `userid`, `tagid`) VALUES
-(1, 1, 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -268,41 +317,49 @@ ALTER TABLE `usertags`
 --
 ALTER TABLE `modeoftransport`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
-  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
 --
 -- AUTO_INCREMENT for table `placestags`
 --
 ALTER TABLE `placestags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `tagid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tagid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- AUTO_INCREMENT for table `transports`
 --
 ALTER TABLE `transports`
   MODIFY `transportid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `userplacerating`
 --
 ALTER TABLE `userplacerating`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `usertags`
 --
 ALTER TABLE `usertags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- Constraints for dumped tables
 --
