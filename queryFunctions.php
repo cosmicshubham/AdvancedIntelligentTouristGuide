@@ -97,7 +97,6 @@ function addTagToPlace( $placeid, $tagid, $weight ) {
 	}
 
 }
-
 function removeTagFromPlace( $placceid, $tagid ) {
 
 	$query = "DELETE FROM placestags WHERE placeid = " . $placceid . " AND tagid = " . $tagid;
@@ -112,6 +111,38 @@ function removeTagFromPlace( $placceid, $tagid ) {
 	}
 
 }
+
+function addTagToUser( $userid, $tagid ) {
+
+	$query = "INSERT INTO usertags ( userid, tagid) VALUES (" . $userid . ", " . $tagid .")";
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+function removeTagFromUser( $userid, $tagid ) {
+
+	$query = "DELETE FROM usertags WHERE userid = " . $userid . " AND tagid = " . $tagid;
+
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+
+
 
 function addTransport( $transportName ) {
 
@@ -311,6 +342,19 @@ function checkPlaceTagExist( $placeid, $tagid ) {
 		return false;
 	}
 }
+function checkUserTagExist( $userid, $tagid ) {
+	$query = "SELECT * FROM usertags WHERE userid = " . $userid . " AND tagid = " . $tagid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( $row && $results ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
 function checkPlaceTransportExist( $placeid, $transportid ) {
 	$query = "SELECT * FROM modeoftransport WHERE placeid = " . $placeid . " AND transportid = " . $transportid;
 	global $connection;

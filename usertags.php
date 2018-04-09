@@ -1,48 +1,31 @@
 <?php
-session_start();
-$loginUser = $_SESSION[ "user" ];
-if ( isset( $_GET[ "status" ] ) ) {
-	$status = $_GET[ "status" ];
-} else {
-	$status = "";
-}
-
-$username = "aitgadmin";
-$password = "aitgadmin";
-$dbname = "aitgdb";
-$dbhost = "localhost";
-$connection = mysqli_connect( $dbhost, $username, $password, $dbname );
-
-
-
-if ( mysqli_connect_errno() ) {
-	die( "Database connection failed: " . mysqli_connect_error() . mysqli_connect_errno() );
-}
-
-$query = "SELECT * FROM tags";
-$results = mysqli_query( $connection, $query );
+include( "queryFunctions.php" );
+include( "sessionRedirector.php" );
+$userid = $_SESSION[ "userid" ];
 
 if ( isset( $_POST[ "add" ] ) ) {
-
-
-	$tagid = $_POST[ "formtags" ];
-	$useridquery = "SELECT * FROM users WHERE username = '" . $loginUser . "'";
-	$resultid = mysqli_query( $connection, $useridquery );
-	$rowuserid = mysqli_fetch_assoc( $resultid );
-	$userid = $rowuserid[ "userid" ];
-
-	$queryInsert = "INSERT INTO usertags (userid, tagid ) VALUES (" . $userid . ", " . $tagid . " )";
-	if ( mysqli_query( $connection, $queryInsert ) ) {
-		$status = "tag updated";
+	if ( checkUserTagExist( $userid, $_POST[ "formtags" ] ) ) {
+		header( "Location: usertags.php?status=TagsAlreadyExist" );
 	} else {
-		echo "error";
+		if ( addTagToUser( $userid, $_POST[ "formtags" ] ) ) {
+			header( "Location: usertags.php?status=TagUpdated" );
+		} else {
+			header( "Location: usertags.php?status=somethingWentWrong" );
+		}
 	}
+}
 
-	if ( !mysqli_query( $connection, "SELECT * FROM usertags WHERE userid = " . $userid . " AND tagid = " . $tagid ) ) {
+if ( isset( $_POST[ "remove" ] ) ) {
 
+	if ( !checkUserTagExist( $userid, $_POST[ "formtags" ] ) ) {
+		header( "Location: usertags.php?status=TagsDoesNotExist" );
+	} else {
+		if ( removeTagFromUser( $userid, $_POST[ "formtags" ] ) ) {
+			header( "Location: usertags.php?status=TagRemoved" );
+		} else {
+			header( "Location: usertags.php?status=somethingWentWrong" );
+		}
 	}
-
-
 }
 
 ?>
@@ -55,7 +38,12 @@ if ( isset( $_POST[ "add" ] ) ) {
 		<div class="page-header float-left">
 			<div class="page-title">
 				<h1>
-					<?php echo $status ?>
+					<?php 
+					if (isset($_GET["status"])) {
+						//var_dump($_GET);
+						echo $_GET["status"];
+					}
+					?>
 				</h1>
 			</div>
 		</div>
@@ -82,13 +70,15 @@ if ( isset( $_POST[ "add" ] ) ) {
 						<select name="formtags" id="activities" class="form-control">
 
 							<?php
-
+							global $connection;
+							$query = "SELECT * FROM tags";
+							$results = mysqli_query( $connection, $query );
 							while ( $row = mysqli_fetch_assoc( $results ) ) {
 								echo( "<option value = '" . $row[ "tagid" ] . "' >" . $row[ "tagname" ] . "</option>" );
 							}
 							?>
 						</select> <br>
-						<button id="payment-button" type="submit" name="add" class="btn btn-lg btn-info col-lg-2"> <i class="fa fa-lg">Add</button>
+						<button id="payment-button" type="submit" name="add" class="btn btn-lg btn-info col-lg-2"> Add</button>
 						<button id="payment-button" type="submit" name="remove" class="btn btn-lg btn-info col-lg-2">Remove</button>
 					</div>
 				</form>
