@@ -23,7 +23,14 @@ if ( isset( $_POST[ "submit" ] ) ) {
 			$_SESSION[ "userid" ] = $returnValue;
 			header( "Location: userindex.php" );
 		} else {
-			header( "Location: registration.php?status=WrongData" );
+			if ($returnValue == -1)
+				header( "Location: registration.php?status=Input_Cannot_be_Blank" );
+			elseif ($returnValue == -2)
+				header( "Location: registration.php?status=Invalid_Email_Address" );
+			elseif ($returnValue == -3)
+				header( "Location: registration.php?status=Password_Mismatch" );
+			else
+				header( "Location: registration.php?status=WrongData" );
 		}
 	}
 
