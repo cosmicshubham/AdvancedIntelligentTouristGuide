@@ -33,7 +33,18 @@ if ( $type == "admin" ) {
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
-				<?php echo "Tags: " . implode(", ", getCurrentPlaceTags($placeidheader)); ?>				
+                <?php echo "<h1>Tags: " . implode(", ", getCurrentPlaceTags($placeidheader))."</h1>" ?>
+			</div>
+		</div>
+	</div>
+    <div class="col-sm-8">
+		<div class="page-header float-right">
+			<div class="page-title">
+				<ol class="breadcrumb text-left">
+					<li class="active">
+						<?php //echo "User Id ".$userid ?>
+					</li>
+				</ol>
 			</div>
 		</div>
 	</div>
@@ -42,11 +53,23 @@ if ( $type == "admin" ) {
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
-				<?php echo "Transports: " . implode(", ", getCurrentPlaceTransport($placeidheader)); ?>
+				<?php echo "<h1>Transports: " . implode(", ", getCurrentPlaceTransport($placeidheader))."</h1>" ?>
+			</div>
+		</div>
+	</div>
+    <div class="col-sm-8">
+		<div class="page-header float-right">
+			<div class="page-title">
+				<ol class="breadcrumb text-left">
+					<li class="active">
+						<?php //echo "User Id ".$userid ?>
+					</li>
+				</ol>
 			</div>
 		</div>
 	</div>
 </div>
+
 <div class="content mt-3"> </div>
 <?php
 
