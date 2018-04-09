@@ -97,6 +97,7 @@ function addTagToPlace( $placeid, $tagid, $weight ) {
 	}
 
 }
+
 function removeTagFromPlace( $placceid, $tagid ) {
 
 	$query = "DELETE FROM placestags WHERE placeid = " . $placceid . " AND tagid = " . $tagid;
@@ -114,7 +115,7 @@ function removeTagFromPlace( $placceid, $tagid ) {
 
 function addTagToUser( $userid, $tagid ) {
 
-	$query = "INSERT INTO usertags ( userid, tagid) VALUES (" . $userid . ", " . $tagid .")";
+	$query = "INSERT INTO usertags ( userid, tagid) VALUES (" . $userid . ", " . $tagid . ")";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
@@ -247,7 +248,7 @@ function addNewUser( $username, $password1, $password2, $type ) {
 	$results = mysqli_query( $connection, $query );
 
 	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
-		return mysqli_insert_id($connection);
+		return mysqli_insert_id( $connection );
 	} else {
 		return -1;
 	}
@@ -321,7 +322,7 @@ function checkUserExist( $username ) {
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
-	if ( $row  ) {
+	if ( $row ) {
 		return true;
 	} else {
 		return false;
@@ -333,12 +334,13 @@ function checkPlaceTagExist( $placeid, $tagid ) {
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
-	if ( $row  ) {
+	if ( $row ) {
 		return true;
 	} else {
 		return false;
 	}
 }
+
 function checkUserTagExist( $userid, $tagid ) {
 	$query = "SELECT * FROM usertags WHERE userid = " . $userid . " AND tagid = " . $tagid;
 	global $connection;
@@ -358,7 +360,7 @@ function checkPlaceTransportExist( $placeid, $transportid ) {
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
-	if ( $row  ) {
+	if ( $row ) {
 		return true;
 	} else {
 		return false;
@@ -383,9 +385,9 @@ function addUserPlaceFeedback( $userid, $placeid, $rating, $comment ) {
 }
 
 function updateUserPlaceFeedback( $userid, $placeid, $rating, $comment ) {
-	
+
 	$query = "UPDATE userplacerating SET placerating = " . $rating . ", comment = '" . $comment . "' WHERE userid = " . $userid . " AND placeid = " . $placeid;
-	
+
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 
@@ -438,69 +440,70 @@ function updateUserProductRating( $userid, $apprating, $comment ) {
 
 }
 
-function countUsers()  {
+function countUsers() {
 	$query = "SELECT count(userid) as c FROM users";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
 	if ( !$results || $row ) {
-		return $row["c"];
+		return $row[ "c" ];
 	} else {
 		return 0;
 	}
-	
+
 }
-function countPlaces()  {
+
+function countPlaces() {
 	$query = "SELECT count(placeid) as c FROM places";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
 	if ( !$results || $row ) {
-		return $row["c"];
+		return $row[ "c" ];
 	} else {
 		return 0;
 	}
-	
+
 }
 
-function countPlacesFeedback()  {
+function countPlacesFeedback() {
 	$query = "SELECT count(id) as c FROM userplacerating";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
 	if ( !$results || $row ) {
-		return $row["c"];
+		return $row[ "c" ];
 	} else {
 		return 0;
 	}
-	
+
 }
 
-function countTransport()  {
+function countTransport() {
 	$query = "SELECT count(transportid) as c FROM transports";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
 	if ( !$results || $row ) {
-		return $row["c"];
+		return $row[ "c" ];
 	} else {
 		return 0;
 	}
-	
+
 }
 
 
-function countTags()  {
+function countTags() {
 	$query = "SELECT count(tagid) as c FROM tags";
 	global $connection;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
 	if ( !$results || $row ) {
-		return $row["c"];
+		return $row[ "c" ];
 	} else {
 		return 0;
 	}
-	
+
 }
 
 
@@ -512,6 +515,50 @@ function redirect( $type ) {
 	}
 }
 
+function getCurrentUserTags( $userid ) {
+	$query = "SELECT tagname FROM usertags, tags WHERE usertags.tagid = tags.tagid AND userid = " . $userid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	$temp = array();
+
+	while ( $row = mysqli_fetch_assoc( $results ) ) {
+
+		array_push( $temp, $row[ "tagname" ] );
+	}
+	return $temp;
+
+}
+
+function getCurrentPlaceTransport( $placeid ) {
+	$query = "SELECT transportname FROM modeoftransport, transports WHERE modeoftransport.transportid = transports.transportid AND placeid = " . $placeid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	$temp = array();
+
+	while ( $row = mysqli_fetch_assoc( $results ) ) {
+
+		array_push( $temp, $row[ "transportname" ] );
+	}
+	return $temp;
+
+}
+
+function getCurrentPlaceTags( $placeid ) {
+	$query = "SELECT tagname FROM placestags, tags WHERE placestags.tagid = tags.tagid AND placeid = " . $placeid;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+
+	$temp = array();
+
+	while ( $row = mysqli_fetch_assoc( $results ) ) {
+
+		array_push( $temp, $row[ "tagname" ] );
+	}
+	return $temp;
+
+}
 
 
 

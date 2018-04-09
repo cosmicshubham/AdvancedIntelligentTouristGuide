@@ -129,9 +129,11 @@ include( "adminDashboardHeader.php" );
 				echo( "<form method='post' action='placesTransportTags.php?placeid=" . $placeidCurrent . "'>" );
 				?>
 				<div class="form-group">
-					<label for="vat" class=" form-control-label">Add your Tags</label>
-					<input type="text" id="vat" placeholder="Current Tags" name="tbtransport" class="form-control col-lg-12">
+					<label for="vat" class=" form-control-label">Current Tags</label>
+					<input type="text" id="vat" placeholder="Current Tags" value='<?php echo implode(" | ", getCurrentPlaceTags($placeidCurrent)); ?>' class="form-control col-lg-12" readonly>
 					<br>
+					<label for="vat" class=" form-control-label">Choose Tag</label>
+					
 					<select name="cbtags" id="activities" class="form-control">
 						<?php
 						global $connection;
@@ -142,6 +144,7 @@ include( "adminDashboardHeader.php" );
 						}
 						?>
 					</select>
+					<br>
 					<label for="vat">Weight</label>
 					<select name="cbweight" id="activities" class="form-control">
 						<?php
@@ -172,7 +175,7 @@ include( "adminDashboardHeader.php" );
 				?>
 				<div class="form-group">
 					<label for="vat" class=" form-control-label">Current Transport</label>
-					<input type="text" id="vat" placeholder="Current Transports" name="tbtransport" class="form-control col-lg-12">
+					<input type="text" id="vat" placeholder="Current Transports" value='<?php echo implode(" | ", getCurrentPlaceTransport($placeidCurrent)); ?>' class="form-control col-lg-12">
 					<br>
 					<div class="row form-group">
 						<div class="col-md-4">

@@ -88,6 +88,25 @@ include( "adminDashboardHeader.php" );
 
 	<div class="col-lg-12">
 		<div class="card">
+			<div class="card-header"><strong>User Tags</strong>
+			</div>
+			<div class="card-body card-block">
+
+				<?php
+				//echo( "<form method='post' action='placesTransportTags.php?placeid=" . $placeidCurrent . "'>" );
+				?>
+				<div class="form-group">
+					<input type="text" id="vat" value='<?php echo implode(" | ", getCurrentUserTags($_GET[ "targetuserid" ])); ?>' class="form-control col-lg-12" readonly>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="col-lg-12">
+		<div class="card">
 			<div class="card-header"><strong>User App Rating</strong>
 			</div>
 			<div class="card-body card-block">
