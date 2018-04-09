@@ -66,6 +66,12 @@ if ( isset( $_POST[ "remove" ] ) ) {
 			<div class="card-body card-block">
 				<form method="post" action="usertags.php">
 					<div class="form-group">
+						
+						
+						<label for="vat" class=" form-control-label">Current Tags</label>
+						<input type="text" id="vat" value='<?php echo implode(" | ", getCurrentUserTags($userid)); ?>' class="form-control col-lg-12" readonly>
+						<br>
+						
 						<label for="vat" class=" form-control-label">Add User Interest Tags</label>
 						<select name="formtags" id="activities" class="form-control">
 
