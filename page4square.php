@@ -33,18 +33,16 @@ if ( $type == "admin" ) {
 	<div class="col-sm-4">
 		<div class="page-header float-left">
 			<div class="page-title">
-				
+				<?php echo "Tags: " . implode(", ", getCurrentPlaceTags($placeidheader)); ?>				
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-8">
-		<div class="page-header float-right">
+</div>
+<div class="breadcrumbs">
+	<div class="col-sm-4">
+		<div class="page-header float-left">
 			<div class="page-title">
-				<ol class="breadcrumb text-right">
-					<li class="active">
-						
-					</li>
-				</ol>
+				<?php echo "Transports: " . implode(", ", getCurrentPlaceTransport($placeidheader)); ?>
 			</div>
 		</div>
 	</div>

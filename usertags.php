@@ -69,7 +69,7 @@ if ( isset( $_POST[ "remove" ] ) ) {
 						
 						
 						<label for="vat" class=" form-control-label">Current Tags</label>
-						<input type="text" id="vat" value='<?php echo implode(" | ", getCurrentUserTags($userid)); ?>' class="form-control col-lg-12" readonly>
+						<input type="text" id="vat" value='<?php echo implode(", ", getCurrentUserTags($userid)); ?>' class="form-control col-lg-12" readonly>
 						<br>
 						
 						<label for="vat" class=" form-control-label">Add User Interest Tags</label>

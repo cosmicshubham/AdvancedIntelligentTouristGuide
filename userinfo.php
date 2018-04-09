@@ -96,7 +96,7 @@ include( "adminDashboardHeader.php" );
 				//echo( "<form method='post' action='placesTransportTags.php?placeid=" . $placeidCurrent . "'>" );
 				?>
 				<div class="form-group">
-					<input type="text" id="vat" value='<?php echo implode(" | ", getCurrentUserTags($_GET[ "targetuserid" ])); ?>' class="form-control col-lg-12" readonly>
+					<input type="text" id="vat" value='<?php echo implode(", ", getCurrentUserTags($_GET[ "targetuserid" ])); ?>' class="form-control col-lg-12" readonly>
 
 
 				</div>
