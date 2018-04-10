@@ -1111,12 +1111,15 @@ form label {
 	text-decoration: none;
 	outline: none;
 }
+
 .gtco-nav-toggle {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
 	text-decoration: none;
 }
+
+
 .gtco-nav-toggle.active i::before, .gtco-nav-toggle.active i::after {
 	background: #444;
 }
@@ -1124,6 +1127,8 @@ form label {
 	outline: none;
 	border-bottom: none !important;
 }
+
+
 .gtco-nav-toggle i {
 	position: relative;
 	display: inline-block;
@@ -1136,6 +1141,7 @@ form label {
 	background: #252525;
 	transition: all .2s ease-out;
 }
+
 .gtco-nav-toggle i::before, .gtco-nav-toggle i::after {
 	content: '';
 	width: 25px;
@@ -1199,9 +1205,11 @@ form label {
 }
 
 @media screen and (max-width: 768px) {
+/*
 .gtco-nav-toggle {
 	display: block;
 }
+*/
 }
 .btn {
 	margin-right: 4px;
