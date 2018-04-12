@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2018 at 12:01 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Apr 12, 2018 at 06:47 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,7 +41,13 @@ CREATE TABLE `modeoftransport` (
 INSERT INTO `modeoftransport` (`id`, `placeid`, `transportid`) VALUES
 (1, 1, 1),
 (7, 1, 2),
-(9, 1, 6);
+(9, 1, 6),
+(10, 2, 1),
+(11, 3, 1),
+(12, 3, 3),
+(13, 4, 1),
+(14, 4, 5),
+(15, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -83,7 +89,6 @@ INSERT INTO `places` (`placeid`, `placename`, `lattitude`, `longitude`) VALUES
 (22, 'Lucknow', '26.8467', '80.9462'),
 (23, 'Varanasi', '25.3176', '82.9739'),
 (24, 'Mathura', '27.4924', '77.6737'),
-(25, 'Ayodhya', '26.7880', '82.1986'),
 (26, 'Kushinagar', '26.8102', '83.9744'),
 (27, 'Sarnath', '25.3762', '83.0227'),
 (28, 'Aligarh', '27.8974', '78.0880'),
@@ -114,6 +119,17 @@ CREATE TABLE `placestags` (
   `tagid` int(11) NOT NULL,
   `weight` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `placestags`
+--
+
+INSERT INTO `placestags` (`id`, `placeid`, `tagid`, `weight`) VALUES
+(3, 4, 34, 1),
+(4, 4, 11, 1),
+(5, 4, 38, 1),
+(7, 30, 32, 1),
+(8, 30, 38, 1);
 
 -- --------------------------------------------------------
 
@@ -203,6 +219,16 @@ CREATE TABLE `userplacerating` (
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `userplacerating`
+--
+
+INSERT INTO `userplacerating` (`id`, `userid`, `placeid`, `placerating`, `comment`) VALUES
+(1, 1, 1, 5, 'Goa was good'),
+(2, 1, 4, 7, 'Open Minded People'),
+(3, 1, 23, 7, 'Cultural Stuff'),
+(4, 1, 7, 6, 'Maha khumbh was nice');
+
 -- --------------------------------------------------------
 
 --
@@ -229,10 +255,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `username`, `password`, `uname`, `gender`, `aadharid`, `dob`, `phone`, `address`, `apprating`, `comment`, `type`) VALUES
-(1, 'shubham', 'kumar', 'Shubham Kumar', 'male', '654654654654', '1996-10-25', '54654654', '22222', 0, '', 'standard'),
-(2, 'aakash', 'chandhoke', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'admin'),
-(4, 'hello', 'hello', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'standard'),
-(5, 'mmmm', 'mmmm', NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 'admin');
+(1, 'shubham@gmail.com', 'shubham', 'Shubham Kumar', 'Male', '654654654654', '1996-10-25', '54654654', '22222', 8, 'Very Nice Website', 'standard'),
+(2, 'aakash@gmail.com', 'aakash', 'Aakash Chandhoke', 'Male', '123456789', '1993-10-24', '9910753314', 'Luckerganj, Allahabad', 0, '', 'admin'),
+(4, 'akhilesh@gmail.com', 'akhilesh', 'Akhilesh Kumar', 'Male', '9876543210', '1995-04-10', '9876543210', 'Kanpur', 8, 'App Experience is awesome.', 'standard');
 
 -- --------------------------------------------------------
 
@@ -245,6 +270,23 @@ CREATE TABLE `usertags` (
   `userid` int(11) NOT NULL,
   `tagid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `usertags`
+--
+
+INSERT INTO `usertags` (`id`, `userid`, `tagid`) VALUES
+(1, 1, 10),
+(2, 1, 14),
+(3, 1, 17),
+(4, 1, 18),
+(5, 1, 7),
+(6, 1, 11),
+(7, 1, 34),
+(8, 1, 38),
+(10, 1, 9),
+(11, 1, 12),
+(12, 1, 19);
 
 --
 -- Indexes for dumped tables
@@ -316,50 +358,42 @@ ALTER TABLE `usertags`
 -- AUTO_INCREMENT for table `modeoftransport`
 --
 ALTER TABLE `modeoftransport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
   MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
-
 --
 -- AUTO_INCREMENT for table `placestags`
 --
 ALTER TABLE `placestags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `tagid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
 --
 -- AUTO_INCREMENT for table `transports`
 --
 ALTER TABLE `transports`
   MODIFY `transportid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `userplacerating`
 --
 ALTER TABLE `userplacerating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `userid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `usertags`
 --
 ALTER TABLE `usertags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Constraints for dumped tables
 --
