@@ -128,7 +128,7 @@ if ( isset( $_POST[ "submit" ] ) ) {
 
 				<div class="form-group">
 					<label for='street' class=' form-control-label'>Coordinates</label>
-					<input type="text" id="vat" value='<?php echo "Lattitude: " . $row["lattitude"] . " Longitude: " . $row ["longitude"]; ?>' class="form-control col-lg-12" readonly>
+					<input type="text" id="vat" value='<?php echo $row["lattitude"] . "N, " . $row ["longitude"] . "E"; ?>' class="form-control col-lg-12" readonly>
 					</br>
 					<label for="vat" class=" form-control-label">Tags</label>
 					<input type="text" id="vat" placeholder="NA" value='<?php echo implode(", ", getCurrentPlaceTags($place)); ?>' class="form-control col-lg-12" readonly>
