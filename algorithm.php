@@ -1,27 +1,56 @@
 <?php
 include_once( "queryFunctions.php" );
 
-function getRecommendedPlaces($placeid1, $placeid2) {
-	
+function getPlacesMain( $placeid1, $placeid2, $days ) {
+	$days = $days - 1;
+	$places = getRecommendedPlaces( $placeid1, $placeid2 );
+	$noOfPlaces = count( $places );
+	$newPlaces = array();
+	array_push( $newPlaces, $placeid1 );
+
+	if ( $days > 1 ) {
+		if ( $noOfPlaces >= $days ) {
+			$divider = $noOfPlaces / $days;
+			for ( $i = 0; $i < $noOfPlaces; $i = floor( $i + $divider ) ) {
+				array_push( $newPlaces, $places[ $i ] );
+			}
+		} elseif ( $noOfPlaces < $days ) {
+			for ( $i = 0; $i < $noOfPlaces; $i++ ) {
+				array_push( $newPlaces, $places[ $i ] );
+			}
+		}
+	}
+
+
+
+	array_push( $newPlaces, $placeid2 );
+
+	return $newPlaces;
+
+}
+
+
+function getRecommendedPlaces( $placeid1, $placeid2 ) {
+
 	global $connection;
 	$query = "SELECT * FROM places WHERE placeid = " . $placeid1;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
-	$lat1 = $row["lattitude"];
-	$long1 = $row["longitude"];
+	$lat1 = $row[ "lattitude" ];
+	$long1 = $row[ "longitude" ];
 	$query = "SELECT * FROM places WHERE placeid = " . $placeid2;
 	$results = mysqli_query( $connection, $query );
 	$row = mysqli_fetch_assoc( $results );
-	$lat2 = $row["lattitude"];
-	$long2 = $row["longitude"];
-	
+	$lat2 = $row[ "lattitude" ];
+	$long2 = $row[ "longitude" ];
+
 	$recommendedPlaces = getPlannedPlaces( $lat1, $long1, $lat2, $long2 );
-	$placeNameArray = array();
-	foreach($recommendedPlaces as $currentPlace) {
-		array_push($placeNameArray, getPlaceNameFromLatLong($currentPlace[0], $currentPlace[1]));
+	$placeIDArray = array();
+	foreach ( $recommendedPlaces as $currentPlace ) {
+		array_push( $placeIDArray, getPlaceIDFromLatLong( $currentPlace[ 0 ], $currentPlace[ 1 ] ) );
 	}
-	return $placeNameArray;	
-	
+	return $placeIDArray;
+
 }
 
 function getPlannedPlaces( $lat1, $long1, $lat2, $long2 ) {
@@ -32,48 +61,68 @@ function getPlannedPlaces( $lat1, $long1, $lat2, $long2 ) {
 
 		if ( $lat1 < $lat2 ) {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 0 ] < $b[ 0 ];
+				if ( $a[ 0 ] < $b[ 0 ] ) return -1;
+				elseif ( $a[ 0 ] == $b[ 0 ] ) return 0;
+				elseif ( $a[ 0 ] > $b[ 0 ] ) return 1;
+				return 0;
 			} );
-		}
-		else {
+		} else {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 0 ] > $b[ 0 ];
+				if ( $a[ 0 ] > $b[ 0 ] ) return -1;
+				elseif ( $a[ 0 ] == $b[ 0 ] ) return 0;
+				elseif ( $a[ 0 ] < $b[ 0 ] ) return 1;
+				return 0;
 			} );
 		}
-	} elseif ( $slope >= 1) {
+	} elseif ( $slope >= 1 ) {
 
 		if ( $lat1 < $lat2 ) {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 1 ] < $b[ 1 ];
+				if ( $a[ 1 ] < $b[ 1 ] ) return -1;
+				elseif ( $a[ 1 ] == $b[ 1 ] ) return 0;
+				elseif ( $a[ 1 ] > $b[ 1 ] ) return 1;
+				return 0;
 			} );
-		}
-		else {
+		} else {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 1 ] > $b[ 1 ];
+				if ( $a[ 1 ] > $b[ 1 ] ) return -1;
+				elseif ( $a[ 1 ] == $b[ 1 ] ) return 0;
+				elseif ( $a[ 1 ] < $b[ 1 ] ) return 1;
+				return 0;
 			} );
 		}
-	} elseif ( $slope <= -1) {
+	} elseif ( $slope <= -1 ) {
 
 		if ( $lat1 < $lat2 ) {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 1 ] > $b[ 1 ];
+				if ( $a[ 1 ] > $b[ 1 ] ) return -1;
+				elseif ( $a[ 1 ] == $b[ 1 ] ) return 0;
+				elseif ( $a[ 1 ] < $b[ 1 ] ) return 1;
+				return 0;
 			} );
-		}
-		else {
+		} else {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 1 ] < $b[ 1 ];
+				if ( $a[ 1 ] < $b[ 1 ] ) return -1;
+				elseif ( $a[ 1 ] == $b[ 1 ] ) return 0;
+				elseif ( $a[ 1 ] > $b[ 1 ] ) return 1;
+				return 0;
 			} );
 		}
-	} elseif ( $slope >= -1 && $slope <= 0) {
+	} elseif ( $slope >= -1 && $slope <= 0 ) {
 
 		if ( $lat1 < $lat2 ) {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 0 ] < $b[ 0 ];
+				if ( $a[ 0 ] < $b[ 0 ] ) return -1;
+				elseif ( $a[ 0 ] == $b[ 0 ] ) return 0;
+				elseif ( $a[ 0 ] > $b[ 0 ] ) return 1;
+				return 0;
 			} );
-		}
-		else {
+		} else {
 			usort( $places, function ( $a, $b ) {
-				return $a[ 0 ] > $b[ 0 ];
+				if ( $a[ 0 ] > $b[ 0 ] ) return -1;
+				elseif ( $a[ 0 ] == $b[ 0 ] ) return 0;
+				elseif ( $a[ 0 ] < $b[ 0 ] ) return 1;
+				return 0;
 			} );
 		}
 	}
@@ -105,21 +154,21 @@ function getPlacesBetween( $lat1, $long1, $lat2, $long2 ) {
 		$currentLong = $current[ 1 ];
 		if ( $slope >= 0 ) {
 			if ( $lat1 < $lat2 ) {
-				if ( $currentLat > $lat1 && $currentLat < $lat2 && $currentLong > $long1 && $currentLat < $long2 ) {
+				if ( $currentLat > $lat1 && $currentLat < $lat2 && $currentLong > $long1 && $currentLong < $long2 ) {
 					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
 				}
 			} else {
-				if ( $currentLat < $lat1 && $currentLat > $lat2 && $currentLong < $long1 && $currentLat > $long2 ) {
+				if ( $currentLat < $lat1 && $currentLat > $lat2 && $currentLong < $long1 && $currentLong > $long2 ) {
 					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
 				}
 			}
 		} elseif ( $slope <= 0 ) {
 			if ( $lat1 < $lat2 ) {
-				if ( $currentLat > $lat1 && $currentLat < $lat2 && $currentLong < $long1 && $currentLat > $long2 ) {
+				if ( $currentLat > $lat1 && $currentLat < $lat2 && $currentLong < $long1 && $currentLong > $long2 ) {
 					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
 				}
 			} else {
-				if ( $currentLat < $lat1 && $currentLat > $lat2 && $currentLong > $long1 && $currentLat < $long2 ) {
+				if ( $currentLat < $lat1 && $currentLat > $lat2 && $currentLong > $long1 && $currentLong < $long2 ) {
 					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
 				}
 			}
@@ -127,13 +176,15 @@ function getPlacesBetween( $lat1, $long1, $lat2, $long2 ) {
 
 
 	}
+	//var_dump($arrayToReturn);
+
 	return $arrayToReturn;
 
 }
 
 
 function calculateSlope( $lat1, $long1, $lat2, $long2 ) {
-	return ( $long2 - $long1 ) / ( $lat2 - $lat1 );
+	return ( ( $long2 - $long1 ) / ( $lat2 - $lat1 ) ) /*  * (110/70) */ ;
 }
 
 

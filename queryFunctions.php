@@ -659,7 +659,17 @@ function getPlaceNameFromLatLong($lat, $long) {
 		return 0;
 	}
 }
-
+function getPlaceIDFromLatLong($lat, $long) {
+	$query = "SELECT * FROM places WHERE lattitude = " . $lat . " AND longitude = " . $long;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "placeid" ];
+	} else {
+		return 0;
+	}
+}
 
 
 ?>
