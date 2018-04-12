@@ -1,9 +1,88 @@
 <?php
 include_once( "queryFunctions.php" );
 
+function getRecommendedPlaces($placeid1, $placeid2) {
+	
+	global $connection;
+	$query = "SELECT * FROM places WHERE placeid = " . $placeid1;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	$lat1 = $row["lattitude"];
+	$long1 = $row["longitude"];
+	$query = "SELECT * FROM places WHERE placeid = " . $placeid2;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	$lat2 = $row["lattitude"];
+	$long2 = $row["longitude"];
+	
+	$recommendedPlaces = getPlannedPlaces( $lat1, $long1, $lat2, $long2 );
+	$placeNameArray = array();
+	foreach($recommendedPlaces as $currentPlace) {
+		array_push($placeNameArray, getPlaceNameFromLatLong($currentPlace[0], $currentPlace[1]));
+	}
+	return $placeNameArray;	
+	
+}
+
+function getPlannedPlaces( $lat1, $long1, $lat2, $long2 ) {
+	$places = getPlacesBetween( $lat1, $long1, $lat2, $long2 );
+	$slope = calculateSlope( $lat1, $long1, $lat2, $long2 );
+
+	if ( $slope >= 0 && $slope <= 1 ) {
+
+		if ( $lat1 < $lat2 ) {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 0 ] < $b[ 0 ];
+			} );
+		}
+		else {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 0 ] > $b[ 0 ];
+			} );
+		}
+	} elseif ( $slope >= 1) {
+
+		if ( $lat1 < $lat2 ) {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 1 ] < $b[ 1 ];
+			} );
+		}
+		else {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 1 ] > $b[ 1 ];
+			} );
+		}
+	} elseif ( $slope <= -1) {
+
+		if ( $lat1 < $lat2 ) {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 1 ] > $b[ 1 ];
+			} );
+		}
+		else {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 1 ] < $b[ 1 ];
+			} );
+		}
+	} elseif ( $slope >= -1 && $slope <= 0) {
+
+		if ( $lat1 < $lat2 ) {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 0 ] < $b[ 0 ];
+			} );
+		}
+		else {
+			usort( $places, function ( $a, $b ) {
+				return $a[ 0 ] > $b[ 0 ];
+			} );
+		}
+	}
+	return $places;
+
+}
 
 
-function returnSuggestedArray( $lat1, $long1, $lat2, $long2 ) {
+function getPlacesBetween( $lat1, $long1, $lat2, $long2 ) {
 
 	$query = "SELECT * FROM places";
 	global $connection;
@@ -14,39 +93,42 @@ function returnSuggestedArray( $lat1, $long1, $lat2, $long2 ) {
 		$currentLat = $row[ "lattitude" ];
 		$currentLong = $row[ "longitude" ];
 		array_push( $temp, array( $row[ "lattitude" ], $row[ "longitude" ] ) );
-	};
-
-
-
-	$slope = calculateSlope( $lat1, $long1, $lat2, $long2 );
-	
-	
-	if ( $slope >= -1 && $slope <= 1 ) {
-
-		if ( $lat1 < $lat2 ) {
-				foreach($temp as $current) {
-					$currentLat = current[0];
-					$currentLong = current[1];
-					if ()
-				}
-
-		}
-
-
-
 	}
 
 
-
-	$arrayOfLatLong;
-
-
+	$arrayToReturn = array();
+	$slope = calculateSlope( $lat1, $long1, $lat2, $long2 );
 
 
-}
+	foreach ( $temp as $current ) {
+		$currentLat = $current[ 0 ];
+		$currentLong = $current[ 1 ];
+		if ( $slope >= 0 ) {
+			if ( $lat1 < $lat2 ) {
+				if ( $currentLat > $lat1 && $currentLat < $lat2 && $currentLong > $long1 && $currentLat < $long2 ) {
+					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
+				}
+			} else {
+				if ( $currentLat < $lat1 && $currentLat > $lat2 && $currentLong < $long1 && $currentLat > $long2 ) {
+					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
+				}
+			}
+		} elseif ( $slope <= 0 ) {
+			if ( $lat1 < $lat2 ) {
+				if ( $currentLat > $lat1 && $currentLat < $lat2 && $currentLong < $long1 && $currentLat > $long2 ) {
+					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
+				}
+			} else {
+				if ( $currentLat < $lat1 && $currentLat > $lat2 && $currentLong > $long1 && $currentLat < $long2 ) {
+					array_push( $arrayToReturn, array( $currentLat, $currentLong ) );
+				}
+			}
+		}
 
-function insideSkewedRectangle ( $lat1, $long1, $lat2, $long2, $currentLat, $currentLong) {
-	if ($currentLat > $lat1 && )
+
+	}
+	return $arrayToReturn;
+
 }
 
 

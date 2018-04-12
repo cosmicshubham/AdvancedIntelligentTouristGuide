@@ -648,7 +648,17 @@ function getCurrentPlaceTags( $placeid ) {
 
 }
 
-
+function getPlaceNameFromLatLong($lat, $long) {
+	$query = "SELECT * FROM places WHERE lattitude = " . $lat . " AND longitude = " . $long;
+	global $connection;
+	$results = mysqli_query( $connection, $query );
+	$row = mysqli_fetch_assoc( $results );
+	if ( !$results || $row ) {
+		return $row[ "placename" ];
+	} else {
+		return 0;
+	}
+}
 
 
 

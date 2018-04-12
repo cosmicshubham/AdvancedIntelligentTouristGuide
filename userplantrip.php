@@ -1,10 +1,12 @@
 <?php
-include( "sessionRedirector.php" );
-include( "queryFunctions.php" );
+include_once( "sessionRedirector.php" );
+include_once( "queryFunctions.php" );
+include_once( "algorithm.php");
+
 $userid = $_SESSION[ "userid" ];
 
 if ( isset( $_POST[ "submit" ] ) ) {
-
+	$names = getRecommendedPlaces($_POST["formplacesource"], $_POST["formplacedestination"]);
 }
 
 ?>
@@ -21,6 +23,9 @@ if ( isset( $_POST[ "submit" ] ) ) {
 					if (isset($_GET["status"])) {
 						//var_dump($_GET);
 						echo $_GET["status"];
+					}
+					if (isset($_POST[ "submit" ])) {
+						echo var_dump($names);
 					}
 					?>
 				</h1>
@@ -43,7 +48,7 @@ if ( isset( $_POST[ "submit" ] ) ) {
 			<div class="card-header"><strong>Plan Your Trip</strong>
 			</div>
 			<div class="card-body card-block">
-				<form method="post" action="usertags.php">
+				<form method="post" action="userplantrip.php">
 					<div class="form-group">
 						
 						
