@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2018 at 06:47 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Apr 12, 2018 at 10:16 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,7 +47,29 @@ INSERT INTO `modeoftransport` (`id`, `placeid`, `transportid`) VALUES
 (12, 3, 3),
 (13, 4, 1),
 (14, 4, 5),
-(15, 4, 4);
+(15, 4, 4),
+(16, 20, 1),
+(17, 20, 4),
+(18, 20, 6),
+(19, 11, 3),
+(20, 11, 6),
+(21, 11, 4),
+(22, 8, 3),
+(23, 8, 5),
+(24, 8, 4),
+(25, 47, 1),
+(26, 47, 3),
+(27, 47, 6),
+(28, 53, 5),
+(29, 53, 1),
+(30, 53, 6),
+(31, 102, 1),
+(32, 102, 4),
+(33, 102, 6),
+(34, 13, 2),
+(35, 13, 5),
+(36, 13, 4),
+(37, 13, 3);
 
 -- --------------------------------------------------------
 
@@ -105,7 +127,78 @@ INSERT INTO `places` (`placeid`, `placename`, `lattitude`, `longitude`) VALUES
 (39, 'Gurugram', '28.4595', '77.0266'),
 (40, 'Kurukshetra', '29.9695', '76.8783'),
 (41, 'Panipat', '29.3909', '76.9635'),
-(42, 'Kolkata', '22.5726', '88.3639');
+(42, 'Kolkata', '22.5726', '88.3639'),
+(43, 'Nagpur', '23.1458', '79.0882'),
+(44, 'Lavasa', '18.4097', '73.5066'),
+(45, 'Malvan', '16.0631', '73.4711'),
+(46, 'Tarkarli', '16.0370', '73.4848'),
+(47, 'Alibaug', '18.6554', '72.8671'),
+(49, 'Jejuri', '18.2781', '74.1612'),
+(50, 'Chandoli National Park', '17.1261', '73.8593'),
+(51, 'Koyna Wildlife Sanctuary', '17.7691', '73.7421'),
+(52, 'Satara', '17.6805', '74.0183'),
+(53, 'Chikhaldara', '21.4030', '77.3268'),
+(54, 'Tamini Ghat', '18.4759', '73.4592'),
+(55, 'Amboli', '15.9647', '74.0036'),
+(56, 'Solapur', '17.6599', '75.9064'),
+(57, 'Thane', '19.2183', '72.9781'),
+(58, 'Surat', '21.1702', '72.8311'),
+(59, 'Amravati', '20.9374', '77.7796'),
+(60, 'Kolhapur', '16.7050', '74.2433'),
+(61, 'Gokarna', '14.5479', '74.3188'),
+(62, 'Panaji', '15.4909', '73.8278'),
+(63, 'Bengaluru', '12.9716', '77.5946'),
+(64, 'Shimla', '31.1048', '77.1734'),
+(65, 'Dalhousie', '32.5387', '75.9710'),
+(66, 'Khajjiar', '32.5558', '76.0656'),
+(67, 'Mcleodganj', '32.2190', '76.3234'),
+(68, 'Hyderabad', '17.3850', '78.4867'),
+(69, 'Kanyakumari', '8.0883', '77.5385'),
+(70, 'Rameshwaram', '9.2876', '79.3129'),
+(71, 'Visakhapatnam', '17.6868', '83.2185'),
+(72, 'Kullu', '31.9579', '77.1095'),
+(73, 'Leh Ladakh', '34.1525', '77.5770'),
+(74, 'Srinagar', '34.0836', '74.7973'),
+(75, 'Gulmarg', '34.0500', '74.3800'),
+(76, 'Manali', '32.2396', '77.1887'),
+(77, 'Rishikesh', '30.0869', '78.2676'),
+(78, 'Kanpur', '26.4499', '80.3319'),
+(79, 'Amritsar', '31.6340', '74.8723'),
+(80, 'Dehradun', '30.3165', '78.0322'),
+(81, 'Indore', '22.7196', '75.8577'),
+(82, 'Ujjain', '23.1793', '75.7849'),
+(83, 'Khandwa', '21.8257', '76.3526'),
+(84, 'Latur', '18.4088', '76.5604'),
+(85, 'Vadodara', '22.3072', '73.1812'),
+(86, 'Ahmedabad', '23.0338', '72.5850'),
+(87, 'Rajkot', '22.3039', '70.8022'),
+(88, 'Dwarka', '28.5921', '77.0460'),
+(89, 'Rann of Kutch', '24.0454', '70.1456'),
+(90, 'Jaisalmer', '26.9157', '70.9083'),
+(91, 'Udaipur', '24.5854', '73.7125'),
+(92, 'Jaipur', '26.9124', '75.7873'),
+(93, 'Jodhpur', '26.2389', '73.0243'),
+(94, 'Ajmer', '26.4499', '74.6399'),
+(95, 'Mount Abu', '24.5926', '72.7156'),
+(96, 'Darjeeling', '27.0360', '88.2627'),
+(97, 'Nainital', '29.3803', '79.4636'),
+(98, 'Mandi', '31.5892', '76.9182'),
+(99, 'Kufri', '31.0979', '77.2678'),
+(101, 'Khilanmarg', '34.0476', '74.3854'),
+(102, 'Dachigam National Park', '34.1372', '75.0378'),
+(103, 'Patna', '25.5941', '85.1376'),
+(104, 'Assam', '26.2006', '92.9376'),
+(105, 'Manipur', '24.6637', '93.9063'),
+(106, 'Nagaland', '26.1584', '94.5624'),
+(107, 'Mizoram', '23.1645', '92.9376'),
+(108, 'Tripura', '23.9408', '91.9882'),
+(109, 'Meghalaya', '25.4670', '91.3662'),
+(110, 'Guwahati', '26.1445', '91.7362'),
+(111, 'Telangana', '17.1232', '79.2088'),
+(112, 'Raipur', '21.2951', '81.8282'),
+(113, 'Andaman And Nicobar', '11.6670', '92.7359'),
+(114, 'Lakshadweep', '10.5625', '72.6368'),
+(115, 'Bhubaneswar', '20.2961', '85.8245');
 
 -- --------------------------------------------------------
 
@@ -129,7 +222,38 @@ INSERT INTO `placestags` (`id`, `placeid`, `tagid`, `weight`) VALUES
 (4, 4, 11, 1),
 (5, 4, 38, 1),
 (7, 30, 32, 1),
-(8, 30, 38, 1);
+(8, 30, 38, 1),
+(9, 21, 13, 4),
+(10, 11, 27, 5),
+(11, 11, 28, 8),
+(12, 11, 26, 8),
+(13, 11, 23, 5),
+(14, 20, 38, 9),
+(15, 20, 31, 7),
+(16, 20, 40, 8),
+(17, 20, 32, 5),
+(18, 8, 30, 6),
+(19, 8, 23, 6),
+(20, 8, 20, 6),
+(21, 59, 36, 6),
+(22, 59, 26, 6),
+(23, 59, 25, 7),
+(24, 8, 25, 10),
+(25, 47, 27, 9),
+(26, 47, 13, 8),
+(27, 47, 22, 1),
+(28, 47, 32, 8),
+(29, 55, 9, 5),
+(30, 55, 38, 10),
+(31, 55, 23, 7),
+(32, 53, 31, 1),
+(33, 53, 16, 6),
+(34, 102, 36, 1),
+(35, 102, 37, 7),
+(36, 102, 28, 7),
+(37, 13, 25, 10),
+(38, 13, 19, 7),
+(39, 13, 28, 5);
 
 -- --------------------------------------------------------
 
@@ -358,42 +482,50 @@ ALTER TABLE `usertags`
 -- AUTO_INCREMENT for table `modeoftransport`
 --
 ALTER TABLE `modeoftransport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
 --
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
-  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `placeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+
 --
 -- AUTO_INCREMENT for table `placestags`
 --
 ALTER TABLE `placestags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `tagid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- AUTO_INCREMENT for table `transports`
 --
 ALTER TABLE `transports`
   MODIFY `transportid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `userplacerating`
 --
 ALTER TABLE `userplacerating`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userid` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `usertags`
 --
 ALTER TABLE `usertags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- Constraints for dumped tables
 --
