@@ -1,6 +1,6 @@
 <?php
 
-// header ("Location: userplantrip.php");
+header ("Location: userplantrip.php");
 
 include( "sessionRedirector.php" );
 include( "userDashboardHeader.php" );
