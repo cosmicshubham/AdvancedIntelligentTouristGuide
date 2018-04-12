@@ -120,7 +120,7 @@ if ( isset( $_POST[ "submit" ] ) ) {
 		while ( $row = mysqli_fetch_assoc( $results ) ) {
 			array_push($latLong, array($row["lattitude"], $row["longitude"]));
 			?>
-	<div class="col-lg-4">
+	<div class="col-lg-6">
 		<div class="card">
 			<div class="card-header"><strong><?php echo $row["placename"]; ?></strong>
 			</div>
