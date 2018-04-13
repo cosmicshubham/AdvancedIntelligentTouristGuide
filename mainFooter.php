@@ -235,7 +235,7 @@
 
 			<div class="row copyright">
 				<div class="col-md-12">
-					<p class="pull-left">&copy; <strong>Group 7 The Other Guys</strong><small class="block">Department of Computer Science and Engineering, MNNIT Allahabad</small>
+					<p class="pull-left">&copy; <strong>Group 7 : The Other Guys</strong><small class="block">Department of Computer Science and Engineering, MNNIT Allahabad</small>
 					</p>
 					<p class="pull-left">2017SW01 - Shubham Kumar | 2017SW03 - Aakash Chandhoke | 2017SW07 - Akhilesh Kumar
 					</p>
