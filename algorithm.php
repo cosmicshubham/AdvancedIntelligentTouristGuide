@@ -2,30 +2,41 @@
 include_once( "queryFunctions.php" );
 
 function getPlacesMain( $placeid1, $placeid2, $days ) {
+	$daysOriginal = $days;
 	$days = $days - 1;
 	$places = getRecommendedPlaces( $placeid1, $placeid2 );
 	$noOfPlaces = count( $places );
 	$newPlaces = array();
 	array_push( $newPlaces, $placeid1 );
 
+	$intDays = array();
+	$dayCounter = 0;
+	array_push($intDays, 0);
+	
 	if ( $days > 1 ) {
 		if ( $noOfPlaces >= $days ) {
 			$divider = $noOfPlaces / $days;
-			for ( $i = 0; $i < $noOfPlaces; $i = floor( $i + $divider ) ) {
+			for ( $i = 0; $i < $noOfPlaces && $dayCounter < $days; $i = floor( $i + $divider ) ) {
+				
 				array_push( $newPlaces, $places[ $i ] );
+				array_push($intDays, ++ $dayCounter);
 			}
 		} elseif ( $noOfPlaces < $days ) {
-			for ( $i = 0; $i < $noOfPlaces; $i++ ) {
-				array_push( $newPlaces, $places[ $i ] );
+			$divider = $noOfPlaces / $days;
+			$prev1 = 0;
+			for ( $i = 0; $i <= $noOfPlaces; $i++, $prev1 = floor( $prev1 + $divider ) ) {
+				array_push( $newPlaces, $places[ $prev1 ] );
+				$dayCounter = floor( $i + $divider );
+				array_push($intDays, $dayCounter);
+				
 			}
 		}
 	}
 
-
-
 	array_push( $newPlaces, $placeid2 );
+	array_push($intDays, ++ $dayCounter);
 
-	return $newPlaces;
+	return array($newPlaces, $intDays) ;
 
 }
 

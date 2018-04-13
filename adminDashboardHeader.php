@@ -165,7 +165,7 @@ if ( mysqli_connect_errno() ) {
 							</select>
 						</div>
 						<div class="col-sm-4">
-							<button id="payment-button" type="submit" name="btnSearch" class="btn btn-md btn-info">Search</button>
+							<button id="payment-button" type="submit" name="btnSearch" class="btn btn-md btn-info">Explore</button>
 						</div>
 					</form>
                 </div>

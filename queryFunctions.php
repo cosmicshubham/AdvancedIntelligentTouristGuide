@@ -221,8 +221,18 @@ function updateUserDetails( $userid, $uname, $gender, $aadharid, $dob, $phone, $
 
 
 function updateUserEmailPassword( $userid, $username, $password1, $password2 ) {
+
+		
+	if ($username == '' || $password1 == '' || $password2 == '') {
+		return -1;
+	}
+	
+	if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
+		return -2;
+	}
+	
 	if ( $password1 != $password2 ) {
-		return false;
+		return -3;
 	}
 
 	$query = "UPDATE users SET username = '" . $username . "', password = '" . $password1 . "' WHERE userid = " . $userid;
@@ -230,9 +240,9 @@ function updateUserEmailPassword( $userid, $username, $password1, $password2 ) {
 	$results = mysqli_query( $connection, $query );
 
 	if ( !$results || mysqli_affected_rows( $connection ) > 0 ) {
-		return true;
+		return 0;
 	} else {
-		return false;
+		return -1;
 	}
 
 }
@@ -262,7 +272,6 @@ function addNewUser( $username, $password1, $password2, $type ) {
 	} else {
 		return -1;
 	}
-
 }
 
 

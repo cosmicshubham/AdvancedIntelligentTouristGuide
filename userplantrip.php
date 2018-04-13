@@ -9,7 +9,13 @@ $names;
 $latLong = array();
 if ( isset( $_POST[ "submit" ] ) ) {
 	$days = date_diff( date_create( $_POST[ "datestart" ] ), date_create( $_POST[ "dateend" ] ) );
-	$names = getPlacesMain( $_POST[ "formplacesource" ], $_POST[ "formplacedestination" ], $days->format( "%a" ) );
+	//var_dump($days->format( "%a" ));
+	$names = getPlacesMain( $_POST[ "formplacesource" ], $_POST[ "formplacedestination" ], $days->format( "%a" ));
+	$placeDays = array();
+	foreach($names[1] as $day) {
+		array_push($placeDays, $day);
+	}
+
 }
 
 ?>
@@ -29,7 +35,7 @@ if ( isset( $_POST[ "submit" ] ) ) {
 					}
 //
 //					if (isset($_POST[ "submit" ])) {
-//						echo var_dump($names);
+//						echo var_dump($names[0]);
 //					}
 					?>
 				</h1>
@@ -113,16 +119,18 @@ if ( isset( $_POST[ "submit" ] ) ) {
 	</div>
 <div class="content mt-3">
 	<?php
-	foreach ( $names as $place ) {
+	$k = 0;
+	foreach ( $names[0] as $place ) {
 		global $connection;
 		$query = "SELECT * FROM places WHERE placeid = " . $place;
 		$results = mysqli_query( $connection, $query );
+		
 		while ( $row = mysqli_fetch_assoc( $results ) ) {
 			array_push($latLong, array($row["lattitude"], $row["longitude"]));
 			?>
 	<div class="col-lg-6">
 		<div class="card">
-			<div class="card-header"><strong><?php echo $row["placename"]; ?></strong>
+			<div class="card-header"><strong><?php echo $row["placename"] . "(Day " . $k . ")"; $k ++; ?></strong>
 			</div>
 			<div class="card-body card-block">
 

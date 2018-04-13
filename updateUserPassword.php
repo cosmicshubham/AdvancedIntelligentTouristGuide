@@ -7,12 +7,17 @@ $type = getUserType( $userid );
 
 if ( isset( $_POST[ "btnupdate" ] ) ) {
 	if ( checkUserExist( $_POST[ "tbusername" ] ) ) {
-		header ( "Location: updateUserPassword.php?status=UserNameAlreadyExist" );
+		header( "Location: updateUserPassword.php?status=UserNameAlreadyExist" );
 	} else {
-		if ( updateUserEmailPassword( $userid, $_POST[ "tbusername" ], $_POST[ "tbpassword1" ], $_POST[ "tbpassword2" ] ) ) {
+		$returnValue = updateUserEmailPassword( $userid, $_POST[ "tbusername" ], $_POST[ "tbpassword1" ], $_POST[ "tbpassword2" ] );
+		if ( $returnValue == 0 ) {
 			header( "Location: updateUserPassword.php?status=PasswordUpdated" );
-		} else {
-			header( "Location: updateUserPassword.php?status=somethingWentWrong" );
+		} elseif ( $returnValue == -1 ) {
+			header( "Location: updateUserPassword.php?status=InvalidInput" );
+		} elseif ( $returnValue == -2 ) {
+			header( "Location: updateUserPassword.php?status=InvalidEmail" );
+		} elseif ( $returnValue == -3 ) {
+			header( "Location: updateUserPassword.php?status=PasswordDoesNotMatch" );
 		}
 	}
 }
