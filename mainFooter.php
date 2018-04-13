@@ -196,14 +196,15 @@
 		<div class="gtco-container">
 			<div class="row row-p	b-md">
 
-				<div class="col-md-4">
+				<div class="col-md-6">
 				  <div class="gtco-widget">
 					<h3>About Us</h3>
-					  <p>Still developing this website..... </p>
-						<p>This website is under construction.</p>
+					  <p>This is our LAMP Stack project for the even semester curriculum </p>
+<!--						<p>This website is under construction.</p>-->
 					</div>
 				</div>
 
+<!--
 				<div class="col-md-2 col-md-push-1">
 					<div class="gtco-widget">
 						<h3>Destination</h3>
@@ -216,14 +217,15 @@
 						</ul>
 					</div>
 				</div>
+-->
 
 				
-				<div class="col-md-3 col-md-push-1">
+				<div class="col-md-6">
 					<div class="gtco-widget">
 						<h3>Get In Touch</h3>
 						<ul class="gtco-quick-contact">
 							<li><a href="#"><i class="icon-phone"></i> +91 98XXXXXXXX</a></li>
-							<li><a href="#"><i class="icon-mail2"></i> xyz@gmail.com</a></li>
+							<li><a href="#"><i class="icon-mail2"></i> theotherguys@gmail.com</a></li>
 							
 						</ul>
 					</div>
@@ -233,7 +235,9 @@
 
 			<div class="row copyright">
 				<div class="col-md-12">
-					<p class="pull-left">2017SW01 - Shubham Kumar | 2017SW03 - Aakash Chandhoke | 2017SW07 - Akhilesh Kumar<small class="block">Department of Computer Science and Engineering, MNNIT Allahabad<a href="http://unsplash.com/" target="_blank"></a></small>
+					<p class="pull-left">&copy; <strong>Group 7 The Other Guys</strong><small class="block">Department of Computer Science and Engineering, MNNIT Allahabad</small>
+					</p>
+					<p class="pull-left">2017SW01 - Shubham Kumar | 2017SW03 - Aakash Chandhoke | 2017SW07 - Akhilesh Kumar
 					</p>
 					<p class="pull-right">
 				  
