@@ -89,7 +89,7 @@ if ( isset( $_POST[ "submit" ] ) ) {
 							}
 							?>
 						</select> <br>
-						<label for="vat" class=" form-control-label">Start Date</label>
+						<label for="vat" class=" form-control-label">End Date</label>
 						<input type="date" id="vat" name="dateend" class="form-control col-lg-12">
 						<br>
 						<button id="payment-button" type="submit" name="submit" class="btn btn-lg btn-info col-lg-2">Submit</button>
