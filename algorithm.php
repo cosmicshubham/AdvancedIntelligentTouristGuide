@@ -24,7 +24,7 @@ function getPlacesMain( $placeid1, $placeid2, $days ) {
 		} elseif ( $noOfPlaces < $days ) {
 			$divider = $noOfPlaces / $days;
 			$prev1 = 0;
-			for ( $i = 0; $i <= $noOfPlaces; $i++, $prev1 = floor( $prev1 + $divider ) ) {
+			for ( $i = 0; $i < $noOfPlaces; $i++, $prev1 = floor( $prev1 + $divider ) ) {
 				array_push( $newPlaces, $places[ $prev1 ] );
 				$dayCounter = floor( $i + $divider );
 				array_push($intDays, $dayCounter);

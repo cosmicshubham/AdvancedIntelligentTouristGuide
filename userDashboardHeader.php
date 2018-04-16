@@ -52,7 +52,7 @@ if ( mysqli_connect_errno() ) {
 				<a class="navbar-brand" href="userindex.php">WELCOME</a> <a class="navbar-brand hidden" href="userindex.php"><img src="images/logo2.png" alt="Logo"></a> </div>
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"> <a href="userRecommendPlaces.php"> <i class="menu-icon fa fa-dashboard"></i>Recommended Places</a> </li>
+					<li class="active"> <a href="userRecommendPlaces.php"> <i class="menu-icon fa fa-dashboard"></i>Recommendations </a> </li>
 					<li class="active"> <a href="userplantrip.php"> <i class="menu-icon fa fa-automobile"></i>Plan Trip</a> </li>
 					
 					<h3 class="menu-title">Manage</h3>

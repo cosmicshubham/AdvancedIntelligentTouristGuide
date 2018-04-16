@@ -130,7 +130,7 @@ if ( isset( $_POST[ "submit" ] ) ) {
 			?>
 	<div class="col-lg-6">
 		<div class="card">
-			<div class="card-header"><strong><?php echo $row["placename"] . "(Day " . $k . ")"; $k ++; ?></strong>
+			<div class="card-header"><strong><?php echo $row["placename"] . " (Day " . $k . ")"; $k ++; ?></strong>
 			</div>
 			<div class="card-body card-block">
 

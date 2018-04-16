@@ -1,7 +1,6 @@
 <?php
-include( "sessionRedirector.php" );
-include( "queryFunctions.php" );
-
+include_once( "sessionRedirector.php" );
+include_once( "queryFunctions.php" );
 $userid = $_SESSION[ "userid" ];
 $type = getUserType( $userid );
 
@@ -25,8 +24,6 @@ if ( $row = mysqli_fetch_assoc( $results ) ) {
 	$phone = $row[ "phone" ];
 	$address = $row[ "address" ];
 
-} else {
-	header( "Location: userprofile.php?status=somethingWentWrong" );
 }
 if ( $type == "admin" ) {
 	include( "adminDashboardHeader.php" );
